@@ -4,11 +4,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, CheckCircle, Loader2 } from "lucide-react";
+import { Send, CheckCircle, Loader2, ChevronDown } from "lucide-react";
 
 const contactSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
   email: z.string().email("Please enter a valid email address"),
+  countryCode: z.string().optional(),
   phone: z.string().optional(),
   company: z.string().optional(),
   industry: z.string().optional(),
@@ -19,6 +20,61 @@ const contactSchema = z.object({
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
+
+const countryCodes = [
+  { code: "+1", country: "US", flag: "\u{1F1FA}\u{1F1F8}" },
+  { code: "+1", country: "CA", flag: "\u{1F1E8}\u{1F1E6}" },
+  { code: "+44", country: "GB", flag: "\u{1F1EC}\u{1F1E7}" },
+  { code: "+61", country: "AU", flag: "\u{1F1E6}\u{1F1FA}" },
+  { code: "+971", country: "AE", flag: "\u{1F1E6}\u{1F1EA}" },
+  { code: "+966", country: "SA", flag: "\u{1F1F8}\u{1F1E6}" },
+  { code: "+974", country: "QA", flag: "\u{1F1F6}\u{1F1E6}" },
+  { code: "+91", country: "IN", flag: "\u{1F1EE}\u{1F1F3}" },
+  { code: "+33", country: "FR", flag: "\u{1F1EB}\u{1F1F7}" },
+  { code: "+49", country: "DE", flag: "\u{1F1E9}\u{1F1EA}" },
+  { code: "+39", country: "IT", flag: "\u{1F1EE}\u{1F1F9}" },
+  { code: "+34", country: "ES", flag: "\u{1F1EA}\u{1F1F8}" },
+  { code: "+31", country: "NL", flag: "\u{1F1F3}\u{1F1F1}" },
+  { code: "+41", country: "CH", flag: "\u{1F1E8}\u{1F1ED}" },
+  { code: "+46", country: "SE", flag: "\u{1F1F8}\u{1F1EA}" },
+  { code: "+47", country: "NO", flag: "\u{1F1F3}\u{1F1F4}" },
+  { code: "+45", country: "DK", flag: "\u{1F1E9}\u{1F1F0}" },
+  { code: "+358", country: "FI", flag: "\u{1F1EB}\u{1F1EE}" },
+  { code: "+48", country: "PL", flag: "\u{1F1F5}\u{1F1F1}" },
+  { code: "+351", country: "PT", flag: "\u{1F1F5}\u{1F1F9}" },
+  { code: "+353", country: "IE", flag: "\u{1F1EE}\u{1F1EA}" },
+  { code: "+43", country: "AT", flag: "\u{1F1E6}\u{1F1F9}" },
+  { code: "+32", country: "BE", flag: "\u{1F1E7}\u{1F1EA}" },
+  { code: "+64", country: "NZ", flag: "\u{1F1F3}\u{1F1FF}" },
+  { code: "+65", country: "SG", flag: "\u{1F1F8}\u{1F1EC}" },
+  { code: "+852", country: "HK", flag: "\u{1F1ED}\u{1F1F0}" },
+  { code: "+81", country: "JP", flag: "\u{1F1EF}\u{1F1F5}" },
+  { code: "+82", country: "KR", flag: "\u{1F1F0}\u{1F1F7}" },
+  { code: "+86", country: "CN", flag: "\u{1F1E8}\u{1F1F3}" },
+  { code: "+55", country: "BR", flag: "\u{1F1E7}\u{1F1F7}" },
+  { code: "+52", country: "MX", flag: "\u{1F1F2}\u{1F1FD}" },
+  { code: "+54", country: "AR", flag: "\u{1F1E6}\u{1F1F7}" },
+  { code: "+57", country: "CO", flag: "\u{1F1E8}\u{1F1F4}" },
+  { code: "+56", country: "CL", flag: "\u{1F1E8}\u{1F1F1}" },
+  { code: "+27", country: "ZA", flag: "\u{1F1FF}\u{1F1E6}" },
+  { code: "+234", country: "NG", flag: "\u{1F1F3}\u{1F1EC}" },
+  { code: "+254", country: "KE", flag: "\u{1F1F0}\u{1F1EA}" },
+  { code: "+20", country: "EG", flag: "\u{1F1EA}\u{1F1EC}" },
+  { code: "+60", country: "MY", flag: "\u{1F1F2}\u{1F1FE}" },
+  { code: "+66", country: "TH", flag: "\u{1F1F9}\u{1F1ED}" },
+  { code: "+63", country: "PH", flag: "\u{1F1F5}\u{1F1ED}" },
+  { code: "+62", country: "ID", flag: "\u{1F1EE}\u{1F1E9}" },
+  { code: "+84", country: "VN", flag: "\u{1F1FB}\u{1F1F3}" },
+  { code: "+90", country: "TR", flag: "\u{1F1F9}\u{1F1F7}" },
+  { code: "+972", country: "IL", flag: "\u{1F1EE}\u{1F1F1}" },
+  { code: "+92", country: "PK", flag: "\u{1F1F5}\u{1F1F0}" },
+  { code: "+880", country: "BD", flag: "\u{1F1E7}\u{1F1E9}" },
+  { code: "+94", country: "LK", flag: "\u{1F1F1}\u{1F1F0}" },
+  { code: "+977", country: "NP", flag: "\u{1F1F3}\u{1F1F5}" },
+  { code: "+968", country: "OM", flag: "\u{1F1F4}\u{1F1F2}" },
+  { code: "+973", country: "BH", flag: "\u{1F1E7}\u{1F1ED}" },
+  { code: "+965", country: "KW", flag: "\u{1F1F0}\u{1F1FC}" },
+];
 
 const industryOptions = [
   "Dental Clinics",
@@ -147,38 +203,54 @@ export default function ContactForm() {
         )}
       </div>
 
-      {/* Phone & Company -- Two Columns */}
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div>
-          <label
-            htmlFor="phone"
-            className="mb-1.5 block text-sm font-medium text-text-primary"
-          >
-            Phone Number
-          </label>
+      {/* Phone Number with Country Code */}
+      <div>
+        <label
+          htmlFor="phone"
+          className="mb-1.5 block text-sm font-medium text-text-primary"
+        >
+          Phone Number
+        </label>
+        <div className="flex">
+          <div className="relative">
+            <select
+              {...register("countryCode")}
+              className={`${inputClasses} w-[120px] appearance-none border-r-0 pr-8 font-mono text-sm`}
+              defaultValue="+1"
+            >
+              {countryCodes.map((c) => (
+                <option key={`${c.country}-${c.code}`} value={c.code}>
+                  {c.flag} {c.code}
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-text-secondary" />
+          </div>
           <input
             id="phone"
             type="tel"
-            placeholder="+1 (555) 000-0000"
+            placeholder="(555) 000-0000"
             {...register("phone")}
-            className={inputClasses}
+            className={`${inputClasses} flex-1`}
           />
         </div>
-        <div>
-          <label
-            htmlFor="company"
-            className="mb-1.5 block text-sm font-medium text-text-primary"
-          >
-            Company Name
-          </label>
-          <input
-            id="company"
-            type="text"
-            placeholder="Acme Corp"
-            {...register("company")}
-            className={inputClasses}
-          />
-        </div>
+      </div>
+
+      {/* Company Name */}
+      <div>
+        <label
+          htmlFor="company"
+          className="mb-1.5 block text-sm font-medium text-text-primary"
+        >
+          Company Name
+        </label>
+        <input
+          id="company"
+          type="text"
+          placeholder="Acme Corp"
+          {...register("company")}
+          className={inputClasses}
+        />
       </div>
 
       {/* Industry */}
