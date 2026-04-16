@@ -62,7 +62,7 @@ export default function Footer() {
                 <img
                   src="/images/logo.png"
                   alt="Opslogica"
-                  className="h-7 w-auto"
+                  className="h-9 w-auto"
                 />
               </Link>
               <p className="text-sm leading-relaxed text-text-secondary">

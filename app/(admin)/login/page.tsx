@@ -49,7 +49,7 @@ export default function AdminLoginPage() {
             <img
               src="/images/logo.png"
               alt="Opslogica"
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
             <p className="mt-3 text-sm text-text-secondary">Admin Panel</p>
           </div>

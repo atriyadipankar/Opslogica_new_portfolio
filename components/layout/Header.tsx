@@ -71,7 +71,7 @@ export default function Header() {
             <img
               src="/images/logo.png"
               alt="Opslogica"
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
 
