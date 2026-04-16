@@ -59,9 +59,11 @@ export default function Footer() {
             {/* Column 1 -- Brand */}
             <div className="space-y-5">
               <Link href="/" className="inline-block">
-                <span className="text-lg font-semibold tracking-tight text-text-primary">
-                  {SITE_CONFIG.name}
-                </span>
+                <img
+                  src="/images/logo.png"
+                  alt="Opslogica"
+                  className="h-7 w-auto"
+                />
               </Link>
               <p className="text-sm leading-relaxed text-text-secondary">
                 {SITE_CONFIG.description}

@@ -67,11 +67,12 @@ export default function Header() {
       >
         <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6">
           {/* ---- Logo ---- */}
-          <Link
-            href="/"
-            className="text-lg font-semibold tracking-tight text-text-primary select-none"
-          >
-            Opslogica
+          <Link href="/" className="select-none">
+            <img
+              src="/images/logo.png"
+              alt="Opslogica"
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* ---- Desktop Nav ---- */}

@@ -45,11 +45,13 @@ export default function AdminLoginPage() {
         {/* Card */}
         <div className="border border-border-subtle bg-white p-8 sm:p-10">
           {/* Logo */}
-          <div className="mb-8 text-center">
-            <h1 className="font-display text-3xl font-semibold tracking-tight text-text-primary">
-              Opslogica
-            </h1>
-            <p className="mt-2 text-sm text-text-secondary">Admin Panel</p>
+          <div className="mb-8 flex flex-col items-center text-center">
+            <img
+              src="/images/logo.png"
+              alt="Opslogica"
+              className="h-8 w-auto"
+            />
+            <p className="mt-3 text-sm text-text-secondary">Admin Panel</p>
           </div>
 
           {/* Heading */}

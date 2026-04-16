@@ -47,10 +47,12 @@ export default function AdminSidebar() {
       {/* Logo */}
       <div className="border-b border-border-subtle px-6 py-5">
         <Link href="/dashboard" className="block">
-          <h1 className="font-display text-xl font-semibold tracking-tight text-text-primary">
-            Opslogica
-          </h1>
-          <p className="mt-0.5 text-xs font-medium text-text-secondary">
+          <img
+            src="/images/logo.png"
+            alt="Opslogica"
+            className="h-6 w-auto"
+          />
+          <p className="mt-2 text-xs font-medium text-text-secondary">
             Admin Panel
           </p>
         </Link>
