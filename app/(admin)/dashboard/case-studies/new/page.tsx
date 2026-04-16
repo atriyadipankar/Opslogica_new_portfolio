@@ -85,7 +85,7 @@ export default function NewCaseStudyPage() {
   function handleSave() {
     // TODO: connect to API
     alert("Case study saved!");
-    router.push("/admin/dashboard/case-studies");
+    router.push("/dashboard/case-studies");
   }
 
   const inputClasses =
@@ -99,7 +99,7 @@ export default function NewCaseStudyPage() {
       {/* Header */}
       <div className="mb-8 flex items-center gap-4">
         <Link
-          href="/admin/dashboard/case-studies"
+          href="/dashboard/case-studies"
           className="p-2 text-text-secondary transition-colors hover:bg-bg-glass hover:text-text-primary"
         >
           <ArrowLeft className="h-5 w-5" />

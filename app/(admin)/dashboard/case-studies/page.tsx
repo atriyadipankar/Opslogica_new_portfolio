@@ -65,7 +65,7 @@ export default function CaseStudiesPage() {
           </h1>
         </div>
         <Link
-          href="/admin/dashboard/case-studies/new"
+          href="/dashboard/case-studies/new"
           className="btn-primary text-sm"
         >
           <Plus className="h-4 w-4" />
@@ -131,7 +131,7 @@ export default function CaseStudiesPage() {
                   <td className="px-6 py-4 text-right">
                     <div className="flex items-center justify-end gap-2">
                       <Link
-                        href={`/admin/dashboard/case-studies/${cs.id}/edit`}
+                        href={`/dashboard/case-studies/${cs.id}/edit`}
                         className="p-2 text-text-secondary transition-colors hover:bg-bg-glass hover:text-text-primary"
                         title="Edit"
                       >

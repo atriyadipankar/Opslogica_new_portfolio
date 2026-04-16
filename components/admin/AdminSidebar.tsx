@@ -16,12 +16,12 @@ import {
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin/dashboard/leads", label: "Leads", icon: Inbox },
-  { href: "/admin/dashboard/blog", label: "Blog Posts", icon: FileText },
-  { href: "/admin/dashboard/case-studies", label: "Case Studies", icon: Briefcase },
-  { href: "/admin/dashboard/seo", label: "SEO Settings", icon: Search },
-  { href: "/admin/dashboard/settings", label: "Settings", icon: Settings },
+  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/dashboard/leads", label: "Leads", icon: Inbox },
+  { href: "/dashboard/blog", label: "Blog Posts", icon: FileText },
+  { href: "/dashboard/case-studies", label: "Case Studies", icon: Briefcase },
+  { href: "/dashboard/seo", label: "SEO Settings", icon: Search },
+  { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
 export default function AdminSidebar() {
@@ -30,8 +30,8 @@ export default function AdminSidebar() {
   const supabase = createClient();
 
   function isActive(href: string) {
-    if (href === "/admin/dashboard") {
-      return pathname === "/admin/dashboard";
+    if (href === "/dashboard") {
+      return pathname === "/dashboard";
     }
     return pathname.startsWith(href);
   }
@@ -46,7 +46,7 @@ export default function AdminSidebar() {
     <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r border-border-subtle bg-white">
       {/* Logo */}
       <div className="border-b border-border-subtle px-6 py-5">
-        <Link href="/admin/dashboard" className="block">
+        <Link href="/dashboard" className="block">
           <h1 className="font-display text-xl font-semibold tracking-tight text-text-primary">
             Opslogica
           </h1>

@@ -47,19 +47,19 @@ const stats = [
 const quickActions = [
   {
     label: "New Blog Post",
-    href: "/admin/dashboard/blog/new",
+    href: "/dashboard/blog/new",
     icon: Plus,
     description: "Create a new article",
   },
   {
     label: "View Leads",
-    href: "/admin/dashboard/leads",
+    href: "/dashboard/leads",
     icon: Eye,
     description: "Manage contact submissions",
   },
   {
     label: "Edit SEO",
-    href: "/admin/dashboard/seo",
+    href: "/dashboard/seo",
     icon: Search,
     description: "Update meta & sitemap",
   },
@@ -198,7 +198,7 @@ export default function DashboardPage() {
             Recent Leads
           </h2>
           <Link
-            href="/admin/dashboard/leads"
+            href="/dashboard/leads"
             className="text-sm font-medium text-text-primary hover:text-text-secondary transition-colors"
           >
             View all

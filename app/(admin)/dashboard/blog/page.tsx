@@ -102,7 +102,7 @@ export default function BlogListPage() {
             </p>
           </div>
           <Link
-            href="/admin/dashboard/blog/new"
+            href="/dashboard/blog/new"
             className="btn-primary !py-2.5 !px-5 !text-sm inline-flex items-center gap-2 self-start"
           >
             <Plus size={16} />
@@ -149,7 +149,7 @@ export default function BlogListPage() {
                           No blog posts yet.
                         </p>
                         <Link
-                          href="/admin/dashboard/blog/new"
+                          href="/dashboard/blog/new"
                           className="btn-primary !py-2 !px-4 !text-xs"
                         >
                           Create your first post
@@ -192,7 +192,7 @@ export default function BlogListPage() {
                       <td className="px-5 py-3.5 whitespace-nowrap">
                         <div className="flex items-center gap-2">
                           <Link
-                            href={`/admin/dashboard/blog/${post.id}/edit`}
+                            href={`/dashboard/blog/${post.id}/edit`}
                             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-text-secondary transition-colors hover:bg-bg-glass hover:text-text-primary"
                           >
                             <Pencil size={13} />
