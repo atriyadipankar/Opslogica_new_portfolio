@@ -129,12 +129,40 @@ export default function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
+  const [submitError, setSubmitError] = useState("");
+
   const onSubmit = async (data: ContactFormData) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Form submitted:", data);
-    setIsSubmitted(true);
-    reset();
+    setSubmitError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.fullName,
+          email: data.email,
+          phone: data.countryCode && data.phone
+            ? `${data.countryCode} ${data.phone}`
+            : data.phone || "",
+          company: data.company || "",
+          industry: data.industry || "",
+          servicesInterested: data.services || [],
+          budgetRange: data.budget || "",
+          hearAboutUs: data.referral || "",
+          message: data.message,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        setSubmitError(err.message || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setIsSubmitted(true);
+      reset();
+    } catch {
+      setSubmitError("Network error. Please check your connection and try again.");
+    }
   };
 
   if (isSubmitted) {
@@ -363,6 +391,13 @@ export default function ContactForm() {
           <p className="mt-1 text-sm text-error">{errors.message.message}</p>
         )}
       </div>
+
+      {/* Error Message */}
+      {submitError && (
+        <div className="border border-error/30 bg-error/5 px-4 py-3 text-sm text-error">
+          {submitError}
+        </div>
+      )}
 
       {/* Submit Button */}
       <button
