@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { SITE_CONFIG, SERVICES, INDUSTRIES } from "@/lib/constants";
+import OLGate from "@/components/ui/OLGate";
 
 const companyLinks = [
   { label: "About", href: "/about" },
@@ -44,117 +48,132 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const [gateOpen, setGateOpen] = useState(false);
+
   return (
-    <footer className="bg-bg-secondary border-t border-border-subtle">
-      <div className="mx-auto max-w-[1280px] px-6 pt-16 pb-8 lg:px-8">
-        {/* -- Main 4-Column Grid -- */}
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Column 1 -- Brand */}
-          <div className="space-y-5">
-            <Link href="/" className="inline-block">
-              <span className="text-lg font-semibold tracking-tight text-text-primary">
-                {SITE_CONFIG.name}
-              </span>
-            </Link>
-            <p className="text-sm leading-relaxed text-text-secondary">
-              {SITE_CONFIG.description}
-            </p>
-            <div className="flex items-center gap-4 pt-1">
-              {socialLinks.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="text-text-primary transition-colors duration-200 hover:text-text-secondary"
-                >
-                  <Icon className="h-[18px] w-[18px]" />
-                </a>
-              ))}
+    <>
+      <footer className="bg-bg-secondary border-t border-border-subtle">
+        <div className="mx-auto max-w-[1280px] px-6 pt-16 pb-8 lg:px-8">
+          {/* -- Main 4-Column Grid -- */}
+          <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Column 1 -- Brand */}
+            <div className="space-y-5">
+              <Link href="/" className="inline-block">
+                <span className="text-lg font-semibold tracking-tight text-text-primary">
+                  {SITE_CONFIG.name}
+                </span>
+              </Link>
+              <p className="text-sm leading-relaxed text-text-secondary">
+                {SITE_CONFIG.description}
+              </p>
+              <div className="flex items-center gap-4 pt-1">
+                {socialLinks.map(({ label, href, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="text-text-primary transition-colors duration-200 hover:text-text-secondary"
+                  >
+                    <Icon className="h-[18px] w-[18px]" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Column 2 -- Services */}
+            <div>
+              <h3 className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-text-secondary">
+                Services
+              </h3>
+              <ul className="space-y-3">
+                {SERVICES.map((service) => (
+                  <li key={service.id}>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
+                    >
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3 -- Industries */}
+            <div>
+              <h3 className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-text-secondary">
+                Industries
+              </h3>
+              <ul className="space-y-3">
+                {INDUSTRIES.map((industry) => (
+                  <li key={industry.id}>
+                    <Link
+                      href={`/industries/${industry.slug}`}
+                      className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
+                    >
+                      {industry.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4 -- Company */}
+            <div>
+              <h3 className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-text-secondary">
+                Company
+              </h3>
+              <ul className="space-y-3">
+                {companyLinks.map(({ label, href }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          {/* Column 2 -- Services */}
-          <div>
-            <h3 className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-text-secondary">
-              Services
-            </h3>
-            <ul className="space-y-3">
-              {SERVICES.map((service) => (
-                <li key={service.id}>
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
-                  >
-                    {service.title}
-                  </Link>
-                </li>
+          {/* -- Divider -- */}
+          <div className="mt-14 border-t border-border-subtle" />
+
+          {/* -- Bottom Bar -- */}
+          <div className="mt-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <p className="text-xs text-text-secondary">
+              &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights
+              reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              {legalLinks.map(({ label, href }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className="font-mono text-[0.6875rem] uppercase tracking-wider text-text-secondary transition-colors duration-200 hover:text-text-primary"
+                >
+                  {label}
+                </Link>
               ))}
-            </ul>
-          </div>
 
-          {/* Column 3 -- Industries */}
-          <div>
-            <h3 className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-text-secondary">
-              Industries
-            </h3>
-            <ul className="space-y-3">
-              {INDUSTRIES.map((industry) => (
-                <li key={industry.id}>
-                  <Link
-                    href={`/industries/${industry.slug}`}
-                    className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
-                  >
-                    {industry.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4 -- Company */}
-          <div>
-            <h3 className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-text-secondary">
-              Company
-            </h3>
-            <ul className="space-y-3">
-              {companyLinks.map(({ label, href }) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* -- Divider -- */}
-        <div className="mt-14 border-t border-border-subtle" />
-
-        {/* -- Bottom Bar -- */}
-        <div className="mt-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-xs text-text-secondary">
-            &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights
-            reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            {legalLinks.map(({ label, href }) => (
-              <Link
-                key={label}
-                href={href}
+              {/* OL Gate trigger — hidden in plain sight */}
+              <button
+                onClick={() => setGateOpen(true)}
                 className="font-mono text-[0.6875rem] uppercase tracking-wider text-text-secondary transition-colors duration-200 hover:text-text-primary"
               >
-                {label}
-              </Link>
-            ))}
+                System Access
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+
+      {/* OL Gate Modal */}
+      <OLGate isOpen={gateOpen} onClose={() => setGateOpen(false)} />
+    </>
   );
 }
