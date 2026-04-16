@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbital Tech Stack Component</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-primary: #060612;
+      --bg-secondary: #0c0c24;
+      --bg-card: rgba(15, 15, 40, 0.6);
+      --bg-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --neon-cyan: #00e5ff;
+      --neon-purple: #7c3aed;
+      --neon-magenta: #f43f8e;
+      --text-primary: #f0f0ff;
+      --text-secondary: #8b8ba7;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'Fira Code', monospace;
+      --glow-cyan: 0 0 20px rgba(0, 229, 255, 0.3), 0 0 60px rgba(0, 229, 255, 0.1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══════════════════════════════════════
+       TECH STACK COMPONENT — START
+       Copy everything between START and END
+    ═══════════════════════════════════════ */
+    .tech-stack {
+      padding: clamp(80px, 10vw, 140px) 0;
+      overflow: hidden;
+    }
+
+    .tech-stack .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Header ── */
+    .tech-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .tech-header .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--neon-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .tech-header .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--neon-cyan);
+    }
+
+    .tech-header .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .tech-header .section-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    /* ── Orbit Container ── */
+    .tech-orbit-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      aspect-ratio: 1;
+      margin: 0 auto;
+    }
+
+    /* ── Center Node ── */
+    .tech-orbit-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+      box-shadow: var(--glow-cyan);
+      z-index: 3;
+    }
+
+    /* ── Orbit Rings ── */
+    .tech-orbit-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      border: 1px solid var(--border-glass);
+    }
+
+    .tech-orbit-ring-1 {
+      width: 280px;
+      height: 280px;
+      transform: translate(-50%, -50%);
+      animation: orbitRotate 30s linear infinite;
+    }
+
+    .tech-orbit-ring-2 {
+      width: 420px;
+      height: 420px;
+      transform: translate(-50%, -50%);
+      animation: orbitRotate 45s linear infinite reverse;
+    }
+
+    .tech-orbit-ring-3 {
+      width: 560px;
+      height: 560px;
+      transform: translate(-50%, -50%);
+      animation: orbitRotate 60s linear infinite;
+    }
+
+    @keyframes orbitRotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* ── Tech Nodes ── */
+    .tech-node {
+      position: absolute;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .tech-node svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .tech-node:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: var(--glow-cyan);
+      transform: scale(1.15);
+    }
+
+    /* Counter-rotate nodes to keep text upright */
+    .tech-orbit-ring-1 .tech-node { animation: counterRotate 30s linear infinite; }
+    .tech-orbit-ring-2 .tech-node { animation: counterRotate 45s linear infinite reverse; }
+    .tech-orbit-ring-3 .tech-node { animation: counterRotate 60s linear infinite; }
+
+    @keyframes counterRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    /* ── Node Positions (Ring 1 — 4 nodes at N/S/W/E) ── */
+    .tech-orbit-ring-1 .tech-node:nth-child(1) { top: -28px; left: 50%; margin-left: -28px; }
+    .tech-orbit-ring-1 .tech-node:nth-child(2) { bottom: -28px; left: 50%; margin-left: -28px; }
+    .tech-orbit-ring-1 .tech-node:nth-child(3) { left: -28px; top: 50%; margin-top: -28px; }
+    .tech-orbit-ring-1 .tech-node:nth-child(4) { right: -28px; top: 50%; margin-top: -28px; }
+
+    /* ── Node Positions (Ring 2 — 6 nodes) ── */
+    .tech-orbit-ring-2 .tech-node:nth-child(1) { top: -28px; left: 50%; margin-left: -28px; }
+    .tech-orbit-ring-2 .tech-node:nth-child(2) { bottom: -28px; left: 50%; margin-left: -28px; }
+    .tech-orbit-ring-2 .tech-node:nth-child(3) { left: -28px; top: 50%; margin-top: -28px; }
+    .tech-orbit-ring-2 .tech-node:nth-child(4) { right: -28px; top: 50%; margin-top: -28px; }
+    .tech-orbit-ring-2 .tech-node:nth-child(5) { top: 12%; left: 88%; margin-left: -28px; }
+    .tech-orbit-ring-2 .tech-node:nth-child(6) { bottom: 12%; left: 8%; margin-left: -28px; }
+
+    /* ── Node Positions (Ring 3 — 6 nodes) ── */
+    .tech-orbit-ring-3 .tech-node:nth-child(1) { top: -28px; left: 50%; margin-left: -28px; }
+    .tech-orbit-ring-3 .tech-node:nth-child(2) { bottom: -28px; left: 50%; margin-left: -28px; }
+    .tech-orbit-ring-3 .tech-node:nth-child(3) { left: -28px; top: 50%; margin-top: -28px; }
+    .tech-orbit-ring-3 .tech-node:nth-child(4) { right: -28px; top: 50%; margin-top: -28px; }
+    .tech-orbit-ring-3 .tech-node:nth-child(5) { top: 6%; right: 12%; }
+    .tech-orbit-ring-3 .tech-node:nth-child(6) { bottom: 6%; left: 12%; }
+
+    /* ── Reduced Motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .tech-orbit-ring-1, .tech-orbit-ring-2, .tech-orbit-ring-3,
+      .tech-orbit-ring-1 .tech-node,
+      .tech-orbit-ring-2 .tech-node,
+      .tech-orbit-ring-3 .tech-node {
+        animation: none !important;
+      }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .tech-orbit-container { max-width: 450px; }
+      .tech-orbit-ring-3 { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .tech-orbit-container { max-width: 350px; }
+      .tech-orbit-ring-2 { display: none; }
+    }
+    /* ═══════════════════════════════════════
+       TECH STACK COMPONENT — END
+    ═══════════════════════════════════════ */
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       TECH STACK — COPY THIS HTML BLOCK
+  ═══════════════════════════════════════ -->
+  <section class="tech-stack">
+    <div class="container">
+      <div class="tech-header">
+        <div class="section-label">Our Stack</div>
+        <h2 class="section-title">Powered by Modern<br>Technology</h2>
+        <p class="section-desc">We use the best tools for the job — never locked into a single framework or cloud provider.</p>
+      </div>
+
+      <div class="tech-orbit-container">
+        <!-- Center hub -->
+        <div class="tech-orbit-center">OPS<br>LOGICA</div>
+
+        <!-- Ring 1 — Inner (4 core techs) -->
+        <div class="tech-orbit-ring tech-orbit-ring-1">
+
+          <!-- React -->
+          <div class="tech-node" title="React">
+            <svg viewBox="-11.5 -10.232 23 20.463" fill="none">
+              <circle r="2.05" fill="#61DAFB"/>
+              <g stroke="#61DAFB" stroke-width="1"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g>
+            </svg>
+          </div>
+
+          <!-- Python -->
+          <div class="tech-node" title="Python">
+            <svg viewBox="0 0 32 32">
+              <defs>
+                <linearGradient id="pyBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient>
+                <linearGradient id="pyYellow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFC836"/><stop offset="100%" stop-color="#FFD43B"/></linearGradient>
+              </defs>
+              <path d="M15.9 2c-7.2 0-6.7 3.1-6.7 3.1l.01 3.2h6.8v1H5.5S2 8.8 2 16s3.1 6.9 3.1 6.9h1.8v-3.3s-.1-3.1 3.1-3.1h5.3s3 .05 3-2.9V7.1S18.8 2 15.9 2zm-3.7 2.9a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" fill="url(#pyBlue)"/>
+              <path d="M16.1 30c7.2 0 6.7-3.1 6.7-3.1l-.01-3.2h-6.8v-1h10.5S30 23.2 30 16s-3.1-6.9-3.1-6.9h-1.8v3.3s.1 3.1-3.1 3.1h-5.3s-3-.05-3 2.9v6.5S13.2 30 16.1 30zm3.7-2.9a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" fill="url(#pyYellow)"/>
+            </svg>
+          </div>
+
+          <!-- Node.js -->
+          <div class="tech-node" title="Node.js">
+            <svg viewBox="0 0 32 32">
+              <path d="M16 2.3L3.5 9.5v14.2L16 30.9l12.5-7.2V9.5L16 2.3z" fill="#333" stroke="#6DA55F" stroke-width="0.5"/>
+              <path d="M16 2.3L3.5 9.5v14.2L16 30.9l12.5-7.2V9.5L16 2.3z" fill="#6DA55F" opacity="0.15"/>
+              <text x="16" y="20.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#6DA55F">N</text>
+            </svg>
+          </div>
+
+          <!-- Swift -->
+          <div class="tech-node" title="Swift">
+            <svg viewBox="0 0 32 32">
+              <defs>
+                <linearGradient id="swiftGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F05138"/><stop offset="100%" stop-color="#F77D3E"/></linearGradient>
+              </defs>
+              <rect x="3" y="3" width="26" height="26" rx="6" fill="url(#swiftGrad)"/>
+              <path d="M22.5 22.5c-.3.2-.6.3-1 .4-2.2.7-4.8.2-7-1.5 0 0 4.3 1 7.2-2.3-1.5.6-5.3-1-8.2-4.4 1.4 1.1 3.4 2 5 2.2-2.7-2.7-4.5-6.5-4.5-6.5s3.3 3.5 7.2 5.3c-.3-.8-.3-1.7.1-2.5.8-1.5 2.5-2 3.3-1 .5.4.7 1.2.5 2.3-.4 2.2-1.5 5.2-2.6 8z" fill="#fff"/>
+            </svg>
+          </div>
+
+        </div>
+
+        <!-- Ring 2 — Middle (6 infra/AI techs) -->
+        <div class="tech-orbit-ring tech-orbit-ring-2">
+
+          <!-- AWS -->
+          <div class="tech-node" title="Amazon Web Services">
+            <svg viewBox="0 0 32 32">
+              <path d="M9.2 15.2c0 .5.06.9.16 1.2.12.3.26.6.45.9.07.1.1.2.1.3 0 .13-.08.26-.25.4l-.83.55c-.12.08-.23.12-.33.12-.13 0-.26-.06-.38-.19-.18-.2-.33-.4-.46-.62-.13-.23-.26-.48-.4-.78-1 1.18-2.26 1.77-3.76 1.77-1.08 0-1.93-.3-2.57-.92-.64-.61-.96-1.43-.96-2.46 0-1.09.38-1.97 1.16-2.63.77-.66 1.8-.99 3.1-.99.43 0 .87.04 1.34.1.47.06.95.16 1.46.28v-.93c0-.97-.2-1.65-.6-2.04-.41-.39-1.1-.58-2.09-.58-.45 0-.91.05-1.38.17-.47.11-.93.26-1.37.45-.2.1-.35.15-.44.18-.09.03-.15.04-.2.04-.17 0-.26-.12-.26-.38v-.64c0-.2.02-.34.08-.43.06-.09.17-.17.34-.26.45-.23.99-.43 1.61-.58.63-.16 1.29-.24 1.99-.24 1.52 0 2.63.34 3.34 1.03.7.69 1.05 1.73 1.05 3.14v4.13z" fill="#F8991D"/>
+              <path d="M5.93 17.15c.41 0 .84-.07 1.3-.22.45-.15.86-.42 1.2-.8.2-.23.36-.48.45-.78.09-.29.14-.65.14-1.06v-.51c-.37-.09-.76-.17-1.17-.22-.41-.05-.81-.08-1.2-.08-.85 0-1.47.16-1.88.5-.41.34-.61.81-.61 1.43 0 .58.15 1.01.46 1.3.3.3.74.44 1.31.44z" fill="#F8991D"/>
+              <path d="M14.96 18.09c-.22 0-.37-.04-.46-.12-.1-.07-.18-.24-.26-.47l-2.86-9.4c-.08-.24-.12-.4-.12-.47 0-.19.09-.3.28-.3h1.31c.23 0 .39.04.47.12.1.07.17.24.25.47l2.05 8.07 1.9-8.07c.07-.24.14-.4.24-.47.1-.08.27-.12.48-.12h1.07c.23 0 .38.04.48.12.1.08.18.24.24.47l1.92 8.17 2.11-8.17c.08-.24.16-.4.25-.47.1-.08.26-.12.47-.12h1.24c.19 0 .29.1.29.3 0 .06-.01.12-.03.2-.02.07-.05.17-.1.3l-2.93 9.4c-.08.24-.16.4-.26.47-.1.08-.26.12-.46.12h-1.15c-.23 0-.38-.04-.48-.13-.1-.08-.18-.24-.24-.47L19.5 10l-1.87 7.98c-.07.24-.14.4-.24.47-.1.09-.27.13-.48.13h-1.15z" fill="#F8991D"/>
+              <path d="M26.35 18.56c-.67 0-1.34-.08-2-.23-.66-.16-1.17-.32-1.52-.51-.21-.12-.36-.24-.41-.36-.06-.12-.08-.24-.08-.36v-.67c0-.26.1-.38.28-.38.08 0 .15.01.23.04.08.03.19.08.32.13.43.19.9.34 1.4.45.51.11 1 .16 1.51.16.8 0 1.42-.14 1.85-.42.43-.28.66-.69.66-1.21 0-.36-.11-.65-.34-.89-.23-.24-.66-.46-1.28-.66l-1.84-.57c-.93-.29-1.61-.72-2.03-1.28-.42-.55-.63-1.16-.63-1.83 0-.53.11-1 .34-1.41.23-.41.54-.77.93-1.06.39-.3.84-.52 1.37-.68.53-.16 1.1-.23 1.7-.23.3 0 .62.02.93.05.32.04.62.09.91.15.28.07.55.14.8.22.25.08.45.17.59.25.2.11.34.22.42.34.08.11.12.26.12.44v.62c0 .26-.1.39-.28.39-.1 0-.26-.05-.47-.15-.71-.32-1.5-.48-2.38-.48-.72 0-1.3.11-1.7.35-.4.24-.6.6-.6 1.11 0 .36.12.67.37.92.25.25.7.49 1.37.71l1.8.57c.92.29 1.58.7 1.98 1.21.39.52.58 1.11.58 1.76 0 .54-.11 1.04-.33 1.47-.22.44-.53.82-.93 1.14-.4.32-.88.57-1.43.74-.58.18-1.19.27-1.85.27z" fill="#F8991D"/>
+              <path d="M27.13 24.52c-3.28 2.42-8.03 3.71-12.12 3.71-5.73 0-10.9-2.12-14.8-5.65-.31-.28-.03-.66.34-.44 4.22 2.45 9.43 3.93 14.82 3.93 3.63 0 7.63-.75 11.31-2.31.56-.24 1.02.36.45.76z" fill="#F8991D"/>
+              <path d="M28.42 23.04c-.42-.54-2.77-.26-3.83-.13-.32.04-.37-.24-.08-.44 1.88-1.32 4.96-.94 5.31-.5.36.45-.1 3.55-1.85 5.03-.27.23-.53.11-.41-.19.4-.99 1.28-3.24.86-3.77z" fill="#F8991D"/>
+            </svg>
+          </div>
+
+          <!-- Google Cloud -->
+          <div class="tech-node" title="Google Cloud Platform">
+            <svg viewBox="0 0 32 32">
+              <path d="M20.27 10.04l1.7-1.7.09-.72A11.86 11.86 0 0 0 4.2 12.58a1.4 1.4 0 0 1 .93-.15l4.88-.8s.25-.41.38-.39a6.98 6.98 0 0 1 9.88-1.2z" fill="#EA4335"/>
+              <path d="M26.16 12.58a11.9 11.9 0 0 0-3.59-5.78l-2.3 2.3a6.97 6.97 0 0 1 2.56 5.53v.7a3.49 3.49 0 0 1 0 6.98h-6.97l-.7.7v4.19l.7.7h6.97a8.37 8.37 0 0 0 3.33-16.12z" fill="#4285F4"/>
+              <path d="M8.86 27.9h6.97v-4.89H8.86a3.46 3.46 0 0 1-1.44-.31l-1 .3-1.71 1.7-.24.97a8.33 8.33 0 0 0 4.39 1.23z" fill="#34A853"/>
+              <path d="M8.86 11.17a8.37 8.37 0 0 0-4.39 15.5l2.96-2.96a3.49 3.49 0 1 1 4.62-4.62l2.96-2.96a8.37 8.37 0 0 0-6.15-4.96z" fill="#FBBC05"/>
+            </svg>
+          </div>
+
+          <!-- Docker -->
+          <div class="tech-node" title="Docker">
+            <svg viewBox="0 0 32 32">
+              <path d="M18 10.5h3v2.7h1.5c.7 0 1.4-.15 2-.4.4-.2.8-.4 1.1-.7-.5-.6-.7-1.4-.8-2.1-.1-1 .1-2.3.9-3.1l.4-.4.4.3c.8.6 1.4 1.5 1.6 2.5 1.2-.4 2.7-.3 3.7.4l.5.3-.3.5c-.8 1.3-2.4 1.8-3.9 1.7-.9 5.3-3.8 9.2-8.4 11.3-2.1 1-4.7 1.3-7.1.8-2.2-.5-4.1-1.6-5.6-3.2-.9-1-1.6-2.2-2.1-3.5-.6-1.5-.9-3.3-.8-5h16.3v-.6H2.7l-.02-.4c-.1-1.4.1-2.8.5-4.1l.2-.5.5.1c1.6.5 3 1.3 4 2.5.9-1 2.2-1.6 3.5-1.8 1.5-.2 3.1.1 4.3 1l.4.3-.3.4c-.5.6-1.2 1-1.9 1.2V10.5zM5.5 14.5h2.7v-2.7H5.5v2.7zm3.3 0H11.5v-2.7H8.8v2.7zm3.3 0h2.7v-2.7h-2.7v2.7zm3.4 0h2.7v-2.7h-2.7v2.7zm-3.4-3.3h2.7V8.5h-2.7v2.7zm3.4 0h2.7V8.5h-2.7v2.7zm3.3 0H21.5V8.5h-2.7v2.7z" fill="#2496ED"/>
+            </svg>
+          </div>
+
+          <!-- Kubernetes -->
+          <div class="tech-node" title="Kubernetes">
+            <svg viewBox="0 0 32 32">
+              <g transform="translate(16,16)">
+                <circle r="13" fill="#326CE5" opacity="0.15"/>
+                <circle r="10" fill="none" stroke="#326CE5" stroke-width="1.5"/>
+                <g fill="#326CE5">
+                  <rect x="-1.3" y="-9.5" width="2.6" height="5" rx="1"/>
+                  <rect x="-1.3" y="-9.5" width="2.6" height="5" rx="1" transform="rotate(51.4)"/>
+                  <rect x="-1.3" y="-9.5" width="2.6" height="5" rx="1" transform="rotate(102.8)"/>
+                  <rect x="-1.3" y="-9.5" width="2.6" height="5" rx="1" transform="rotate(154.3)"/>
+                  <rect x="-1.3" y="-9.5" width="2.6" height="5" rx="1" transform="rotate(205.7)"/>
+                  <rect x="-1.3" y="-9.5" width="2.6" height="5" rx="1" transform="rotate(257.1)"/>
+                  <rect x="-1.3" y="-9.5" width="2.6" height="5" rx="1" transform="rotate(308.6)"/>
+                </g>
+                <circle r="3.5" fill="#326CE5"/>
+                <circle r="2" fill="#fff"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- OpenAI / GPT -->
+          <div class="tech-node" title="OpenAI GPT">
+            <svg viewBox="0 0 32 32">
+              <path d="M27.2 13.5c.5-1.6.3-3.3-.5-4.8a6.4 6.4 0 0 0-6.9-3.1 6.4 6.4 0 0 0-4.8-2.1 6.4 6.4 0 0 0-6.1 4.4 6.4 6.4 0 0 0-4.3 3.1 6.4 6.4 0 0 0 .8 7.5 6.4 6.4 0 0 0 .5 4.8 6.4 6.4 0 0 0 6.9 3.1 6.4 6.4 0 0 0 4.8 2.1 6.4 6.4 0 0 0 6.1-4.4 6.4 6.4 0 0 0 4.3-3.1 6.4 6.4 0 0 0-.8-7.5z" fill="none" stroke="#10A37F" stroke-width="1.5"/>
+              <path d="M15.3 6.8v9.5l-4.7 2.7m9.4-4.7h-9.5l-4.7-2.7m9.4-4.8l-4.7 2.7-4.7-2.7m9.4 14.3v-9.5l4.7-2.7m-9.4 4.7h9.5l4.7 2.7m-9.4 4.8l4.7-2.7 4.7 2.7" fill="none" stroke="#10A37F" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Meta Llama -->
+          <div class="tech-node" title="Meta Llama">
+            <svg viewBox="0 0 32 32">
+              <defs>
+                <linearGradient id="metaGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0081FB"/><stop offset="50%" stop-color="#A033FF"/><stop offset="100%" stop-color="#FF7847"/></linearGradient>
+              </defs>
+              <path d="M8.2 18.8c0 2.1.4 3.7 1 4.6.7 1.1 1.6 1.4 2.4 1.4 1 0 1.8-.4 3-2.2.9-1.4 2-3.5 2.7-4.8l.9-1.7c.9-1.6 1.9-3.3 3.2-4.6 1.4-1.5 2.9-2.3 4.5-2.3 2 0 3.8 1.1 5.1 3.1 1.4 2.2 2.1 5 2.1 8 0 1.7-.3 3-.8 3.9-.5.9-1.3 1.4-2.3 1.4v-2.6c.5 0 .8-.2 1-.8.2-.6.4-1.5.4-2.5 0-2.5-.5-4.9-1.6-6.6-.9-1.4-2-2.2-3.3-2.2-1.4 0-2.6 1-3.8 2.7-.7 1-1.4 2.2-2.2 3.7l-.8 1.5c-1.3 2.4-1.8 3.2-2.8 4.5-1.3 1.7-2.5 2.6-4.2 2.6-1.7 0-3-.8-3.9-2.2-1-1.5-1.4-3.5-1.4-5.8 0-2.4.6-4.8 1.8-6.8 1.2-2 2.9-3.4 5-3.4v2.6c-1.3 0-2.4.9-3.3 2.5-1 1.6-1.4 3.6-1.4 5.5z" fill="url(#metaGrad)"/>
+            </svg>
+          </div>
+
+        </div>
+
+        <!-- Ring 3 — Outer (6 extended techs) -->
+        <div class="tech-orbit-ring tech-orbit-ring-3">
+
+          <!-- Next.js -->
+          <div class="tech-node" title="Next.js">
+            <svg viewBox="0 0 32 32">
+              <circle cx="16" cy="16" r="13" fill="#000" stroke="#fff" stroke-width="0.8"/>
+              <path d="M12.5 10.5v11l8.6-11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 10.5v11" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+                <animate attributeName="stroke" values="#fff;#666;#fff" dur="3s" repeatCount="indefinite"/>
+              </path>
+            </svg>
+          </div>
+
+          <!-- Flutter -->
+          <div class="tech-node" title="Flutter">
+            <svg viewBox="0 0 32 32">
+              <path d="M18.5 3L5.5 16l4 4L26.5 3h-8z" fill="#47C5FB"/>
+              <path d="M18.5 17L13 22.5l4 4h8L18.5 17z" fill="#47C5FB"/>
+              <path d="M13 22.5l5.5-5.5 4 4-5.5 5.5z" fill="#00569E"/>
+              <path d="M13 22.5l5.5 4h-5z" fill="#00B5F8" opacity="0.7"/>
+            </svg>
+          </div>
+
+          <!-- PostgreSQL -->
+          <div class="tech-node" title="PostgreSQL">
+            <svg viewBox="0 0 32 32">
+              <path d="M23.5 10.4c-.4-1.2-1.2-2.2-2.2-2.9-.7-.5-1.5-.8-2.4-.9-.2-.3-.5-.6-.9-.8-.8-.5-1.8-.7-2.8-.6-1 .1-1.9.4-2.6 1-.5-.1-1-.1-1.5 0-1.1.2-2 .7-2.7 1.6-.6.7-1 1.6-1.1 2.6-.5.3-.9.7-1.2 1.2-.6 1-.8 2.2-.5 3.3.1.5.3.9.6 1.4-.1.7 0 1.4.2 2 .5 1.3 1.5 2.3 2.7 2.8.3.1.6.2.9.2v3.7c0 .4.1.8.3 1.1.2.4.6.6 1 .6h.5c.5 0 .9-.3 1.1-.7.2-.4.2-.8 0-1.2v-3c.4.1.8.1 1.2.1 1.5 0 2.8-.5 3.7-1.5l.2-.2v3.2c-.2.4-.2.8 0 1.2.2.4.6.7 1.1.7h.5c.4 0 .8-.2 1-.6.2-.3.3-.7.3-1.1v-5.3c.5-.5.9-1.1 1.2-1.8.5-1.2.5-2.5.3-3.7.2-.4.3-.9.4-1.3.1-.8 0-1.5-.3-2.2z" fill="#336791"/>
+              <path d="M21 15c0 1.2-.5 2.2-1.3 3-.8.7-1.9 1.1-3 1.1-1.2 0-2.2-.4-3-1.1-.8-.8-1.3-1.8-1.3-3s.5-2.3 1.3-3c.8-.8 1.8-1.2 3-1.2 1.1 0 2.2.4 3 1.2.8.7 1.3 1.8 1.3 3z" fill="#fff" opacity="0.3"/>
+            </svg>
+          </div>
+
+          <!-- Redis -->
+          <div class="tech-node" title="Redis">
+            <svg viewBox="0 0 32 32">
+              <path d="M28.4 18.7c-2 1.4-12.2 5.2-14.4 6.3-2.1 1.1-3.3 1.1-5 .3-1.7-.8-12.6-5.2-14.5-6.1" fill="none" stroke="#A41E11" stroke-width="0" transform="translate(5.5,-2) scale(0.72)"/>
+              <g transform="translate(3,2) scale(0.82)">
+                <path d="M29.8 17.9c-2 1.1-12.3 5.1-14.5 6.2-2.2 1.1-3.4 1.1-5.1.3S-2.5 19.3-4.3 18.3" fill="none"/>
+                <ellipse cx="16" cy="16" rx="12" ry="5" fill="#A41E11" opacity="0.2"/>
+                <ellipse cx="16" cy="14" rx="12" ry="5" fill="#D82C20" opacity="0.25"/>
+                <ellipse cx="16" cy="12" rx="12" ry="5" fill="#D82C20"/>
+                <path d="M12.5 10l3.5 1.5L19.5 10 16 8.5z" fill="#fff"/>
+                <path d="M22 11l-3.5-1.5L16 11l3 1.5z" fill="#7A0C00"/>
+                <path d="M10 11l3.5-1.5L16 11l-3 1.5z" fill="#AD1810"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- TensorFlow -->
+          <div class="tech-node" title="TensorFlow">
+            <svg viewBox="0 0 32 32">
+              <path d="M16 3L6 8.8v12.4L16 27l10-5.8V8.8L16 3z" fill="none"/>
+              <path d="M16 3v24l10-5.8V8.8L16 3z" fill="#FF6F00"/>
+              <path d="M16 3L6 8.8v12.4L16 27V3z" fill="#FFA800"/>
+              <path d="M16 11.5L10.5 14.5v6L16 17.5V11.5z" fill="#FF6F00" opacity="0.7"/>
+              <path d="M16 11.5l5.5 3v6L16 17.5V11.5z" fill="#FF6F00" opacity="0.5"/>
+              <text x="16" y="18" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="bold" fill="#fff">TF</text>
+            </svg>
+          </div>
+
+          <!-- Apache Kafka -->
+          <div class="tech-node" title="Apache Kafka">
+            <svg viewBox="0 0 32 32">
+              <g transform="translate(16,16)">
+                <circle r="3" fill="none" stroke="#fff" stroke-width="1.5"/>
+                <circle r="2.2" cx="0" cy="-8" fill="none" stroke="#fff" stroke-width="1.2"/>
+                <circle r="2.2" cx="7" cy="-4" fill="none" stroke="#fff" stroke-width="1.2"/>
+                <circle r="2.2" cx="7" cy="4" fill="none" stroke="#fff" stroke-width="1.2"/>
+                <circle r="2.2" cx="0" cy="8" fill="none" stroke="#fff" stroke-width="1.2"/>
+                <circle r="2.2" cx="-7" cy="4" fill="none" stroke="#fff" stroke-width="1.2"/>
+                <circle r="2.2" cx="-7" cy="-4" fill="none" stroke="#fff" stroke-width="1.2"/>
+                <line x1="0" y1="-3" x2="0" y2="-5.8" stroke="#fff" stroke-width="1"/>
+                <line x1="2.6" y1="-1.5" x2="4.8" y2="-2.8" stroke="#fff" stroke-width="1"/>
+                <line x1="2.6" y1="1.5" x2="4.8" y2="2.8" stroke="#fff" stroke-width="1"/>
+                <line x1="0" y1="3" x2="0" y2="5.8" stroke="#fff" stroke-width="1"/>
+                <line x1="-2.6" y1="1.5" x2="-4.8" y2="2.8" stroke="#fff" stroke-width="1"/>
+                <line x1="-2.6" y1="-1.5" x2="-4.8" y2="-2.8" stroke="#fff" stroke-width="1"/>
+              </g>
+            </svg>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
