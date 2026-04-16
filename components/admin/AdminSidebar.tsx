@@ -50,7 +50,7 @@ export default function AdminSidebar() {
           <img
             src="/images/logo.png"
             alt="Opslogica"
-            className="h-8 w-auto"
+            className="h-4 w-auto"
           />
           <p className="mt-2 text-xs font-medium text-text-secondary">
             Admin Panel
