@@ -13,11 +13,22 @@ export interface PortfolioProject {
   images: string[];
 }
 
-// Helper to generate an array of scroll image paths
+// ---------------------------------------------------------------------------
+// Supabase Storage CDN — all portfolio images are served from here
+// ---------------------------------------------------------------------------
+const SUPABASE_CDN_BASE =
+  `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/portfolio`;
+
+/** Build a public CDN URL for a portfolio image. */
+function img(filename: string): string {
+  return `${SUPABASE_CDN_BASE}/${filename}`;
+}
+
+// Helper to generate an array of scroll image CDN URLs
 function scrollImages(prefix: string, count: number): string[] {
   return Array.from({ length: count }, (_, i) => {
     const idx = String(i + 1).padStart(2, "0");
-    return `/images/portfolio/${prefix}-scroll-${idx}.png`;
+    return img(`${prefix}-scroll-${idx}.png`);
   });
 }
 
@@ -30,8 +41,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "dental-clinics",
     description:
       "Built a complete digital ecosystem for a multi-location dental practice — intelligent appointment booking, service showcase, and a dynamic clinic directory that cut front-desk calls by 60%.",
-    fullImage: "/images/portfolio/dental-01-swisssmile-full.png",
-    thumbnail: "/images/portfolio/dental-01-swisssmile-scroll-01.png",
+    fullImage: img("dental-01-swisssmile-full.png"),
+    thumbnail: img("dental-01-swisssmile-scroll-01.png"),
     images: scrollImages("dental-01-swisssmile", 7),
   },
   {
@@ -41,8 +52,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "dental-clinics",
     description:
       "Redesigned a dated clinic website into a conversion machine — automated scheduling, treatment explainers, and patient testimonials that tripled online bookings in 90 days.",
-    fullImage: "/images/portfolio/dental-09-novadent-full.png",
-    thumbnail: "/images/portfolio/dental-09-novadent-scroll-01.png",
+    fullImage: img("dental-09-novadent-full.png"),
+    thumbnail: img("dental-09-novadent-scroll-01.png"),
     images: scrollImages("dental-09-novadent", 6),
   },
 
@@ -54,9 +65,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "dermatology-clinics",
     description:
       "Crafted a high-end digital experience for a luxury dermatology and aesthetics clinic — virtual consultation booking, before/after galleries, and treatment cost calculators.",
-    fullImage: "/images/portfolio/dermatology-04-cliniquedeschampselysees-full.png",
-    thumbnail:
-      "/images/portfolio/dermatology-04-cliniquedeschampselysees-scroll-01.png",
+    fullImage: img("dermatology-04-cliniquedeschampselysees-full.png"),
+    thumbnail: img("dermatology-04-cliniquedeschampselysees-scroll-01.png"),
     images: scrollImages("dermatology-04-cliniquedeschampselysees", 6),
   },
   {
@@ -66,9 +76,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "dermatology-clinics",
     description:
       "Engineered a full-service dermatology platform with AI-driven skin analysis intake, patient portal, and integrated telehealth — reducing initial consultation time by 45%.",
-    fullImage: "/images/portfolio/dermatology-08-dermaeliteclinic-full.png",
-    thumbnail:
-      "/images/portfolio/dermatology-08-dermaeliteclinic-scroll-01.png",
+    fullImage: img("dermatology-08-dermaeliteclinic-full.png"),
+    thumbnail: img("dermatology-08-dermaeliteclinic-scroll-01.png"),
     images: scrollImages("dermatology-08-dermaeliteclinic", 11),
   },
 
@@ -80,9 +89,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "orthopedic-clinics",
     description:
       "Delivered a scalable platform for a leading orthopedic hospital group — intelligent doctor finder, treatment guides, and patient resource center serving 200K+ monthly visitors.",
-    fullImage: "/images/portfolio/orthopedic-02-schoen-klinik-full.png",
-    thumbnail:
-      "/images/portfolio/orthopedic-02-schoen-klinik-scroll-01.png",
+    fullImage: img("orthopedic-02-schoen-klinik-full.png"),
+    thumbnail: img("orthopedic-02-schoen-klinik-scroll-01.png"),
     images: scrollImages("orthopedic-02-schoen-klinik", 4),
   },
   {
@@ -92,9 +100,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "orthopedic-clinics",
     description:
       "Designed an award-worthy digital experience for a specialized orthopedic hospital — department navigation, patient journey mapping, and pre-surgery preparation tools.",
-    fullImage: "/images/portfolio/orthopedic-03-waldkliniken-eisenberg-full.png",
-    thumbnail:
-      "/images/portfolio/orthopedic-03-waldkliniken-eisenberg-scroll-01.png",
+    fullImage: img("orthopedic-03-waldkliniken-eisenberg-full.png"),
+    thumbnail: img("orthopedic-03-waldkliniken-eisenberg-scroll-01.png"),
     images: scrollImages("orthopedic-03-waldkliniken-eisenberg", 5),
   },
   {
@@ -104,9 +111,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "orthopedic-clinics",
     description:
       "Built a multi-region digital platform for an international hospital network — clinic finder across 3 continents, unified booking system, and localized patient portals.",
-    fullImage: "/images/portfolio/orthopedic-09-mediclinic-full.png",
-    thumbnail:
-      "/images/portfolio/orthopedic-09-mediclinic-scroll-01.png",
+    fullImage: img("orthopedic-09-mediclinic-full.png"),
+    thumbnail: img("orthopedic-09-mediclinic-scroll-01.png"),
     images: scrollImages("orthopedic-09-mediclinic", 5),
   },
 
@@ -118,8 +124,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "pathological-labs",
     description:
       "Transformed a major diagnostics provider's web presence — comprehensive test catalog, real-time results portal, and lab locator that handles 50K+ monthly searches.",
-    fullImage: "/images/portfolio/pathlabs-01-synlab-full.png",
-    thumbnail: "/images/portfolio/pathlabs-01-synlab-scroll-01.png",
+    fullImage: img("pathlabs-01-synlab-full.png"),
+    thumbnail: img("pathlabs-01-synlab-scroll-01.png"),
     images: scrollImages("pathlabs-01-synlab", 4),
   },
   {
@@ -129,8 +135,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "pathological-labs",
     description:
       "Developed an end-to-end laboratory platform with online test ordering, automated results delivery, and specimen tracking that eliminated 80% of phone-based inquiries.",
-    fullImage: "/images/portfolio/pathlabs-03-laboklin-full.png",
-    thumbnail: "/images/portfolio/pathlabs-03-laboklin-scroll-01.png",
+    fullImage: img("pathlabs-03-laboklin-full.png"),
+    thumbnail: img("pathlabs-03-laboklin-scroll-01.png"),
     images: scrollImages("pathlabs-03-laboklin", 4),
   },
   {
@@ -140,8 +146,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "pathological-labs",
     description:
       "Created a comprehensive digital hub for an international reference laboratory — searchable test directory, physician resources, and sample logistics management.",
-    fullImage: "/images/portfolio/pathlabs-05-biomnis-full.png",
-    thumbnail: "/images/portfolio/pathlabs-05-biomnis-scroll-01.png",
+    fullImage: img("pathlabs-05-biomnis-full.png"),
+    thumbnail: img("pathlabs-05-biomnis-scroll-01.png"),
     images: scrollImages("pathlabs-05-biomnis", 7),
   },
 
@@ -153,9 +159,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "physician-practices",
     description:
       "Engineered a flagship digital platform for a world-class medical center — department finder, doctor profiles, appointment booking, and a health library with 5,000+ articles.",
-    fullImage: "/images/portfolio/physician-08-clevelandclinicabudhabi-full.png",
-    thumbnail:
-      "/images/portfolio/physician-08-clevelandclinicabudhabi-scroll-01.png",
+    fullImage: img("physician-08-clevelandclinicabudhabi-full.png"),
+    thumbnail: img("physician-08-clevelandclinicabudhabi-scroll-01.png"),
     images: scrollImages("physician-08-clevelandclinicabudhabi", 9),
   },
   {
@@ -165,9 +170,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "physician-practices",
     description:
       "Built a unified platform for a major healthcare group — multi-hospital navigation, doctor search across specialties, and patient services that handle 100K+ appointments monthly.",
-    fullImage: "/images/portfolio/physician-10-drsulaimanalhabib-full.png",
-    thumbnail:
-      "/images/portfolio/physician-10-drsulaimanalhabib-scroll-01.png",
+    fullImage: img("physician-10-drsulaimanalhabib-full.png"),
+    thumbnail: img("physician-10-drsulaimanalhabib-scroll-01.png"),
     images: scrollImages("physician-10-drsulaimanalhabib", 6),
   },
 
@@ -179,9 +183,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "psychology-practices",
     description:
       "Designed a calming, trust-building website for a psychiatric and psychotherapy clinic — treatment program guides, therapist profiles, and confidential intake forms.",
-    fullImage: "/images/portfolio/psychology-01-klinik-gut-full.png",
-    thumbnail:
-      "/images/portfolio/psychology-01-klinik-gut-scroll-01.png",
+    fullImage: img("psychology-01-klinik-gut-full.png"),
+    thumbnail: img("psychology-01-klinik-gut-scroll-01.png"),
     images: scrollImages("psychology-01-klinik-gut", 8),
   },
   {
@@ -191,9 +194,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "psychology-practices",
     description:
       "Built a cross-border online therapy platform connecting patients with licensed therapists — secure video sessions, scheduling, and multilingual support across 12 countries.",
-    fullImage: "/images/portfolio/psychology-03-my-international-therapy-full.png",
-    thumbnail:
-      "/images/portfolio/psychology-03-my-international-therapy-scroll-01.png",
+    fullImage: img("psychology-03-my-international-therapy-full.png"),
+    thumbnail: img("psychology-03-my-international-therapy-scroll-01.png"),
     images: scrollImages("psychology-03-my-international-therapy", 5),
   },
   {
@@ -203,9 +205,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     industrySlug: "psychology-practices",
     description:
       "Turned a basic practice website into a patient acquisition machine — session booking, therapist matching quiz, and content strategy that doubled monthly inquiries.",
-    fullImage: "/images/portfolio/psychology-05-parispsychologycentre-full.png",
-    thumbnail:
-      "/images/portfolio/psychology-05-parispsychologycentre-scroll-01.png",
+    fullImage: img("psychology-05-parispsychologycentre-full.png"),
+    thumbnail: img("psychology-05-parispsychologycentre-scroll-01.png"),
     images: scrollImages("psychology-05-parispsychologycentre", 12),
   },
 ];

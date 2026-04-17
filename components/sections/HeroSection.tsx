@@ -17,6 +17,7 @@ const SOCIAL_PROOF_COUNTRIES = [
   "Canada",
   "Europe",
   "Australia",
+  "India",
   "Gulf Region",
 ];
 
