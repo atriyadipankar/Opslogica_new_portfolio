@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "dermatology-04-cliniquedeschampselysees",
+    "status": "ok",
+    "slices": 6,
+    "totalHeight": 4683,
+    "category": "dermatology",
+    "url": "https://cliniquedeschampselysees.com"
+  },
+  {
+    "slug": "dental-09-novadent",
+    "status": "ok",
+    "slices": 6,
+    "totalHeight": 4844,
+    "category": "dental",
+    "url": "https://novadent.ae"
+  },
+  {
+    "slug": "dermatology-08-dermaeliteclinic",
+    "status": "ok",
+    "slices": 11,
+    "totalHeight": 9302,
+    "category": "dermatology",
+    "url": "https://dermaeliteclinic.ae"
+  },
+  {
+    "slug": "orthopedic-02-schoen-klinik",
+    "status": "ok",
+    "slices": 4,
+    "totalHeight": 3151,
+    "category": "orthopedic",
+    "url": "https://schoen-klinik.de"
+  },
+  {
+    "slug": "orthopedic-03-waldkliniken-eisenberg",
+    "status": "ok",
+    "slices": 5,
+    "totalHeight": 4329,
+    "category": "orthopedic",
+    "url": "https://waldkliniken-eisenberg.de"
+  },
+  {
+    "slug": "pathlabs-01-synlab",
+    "status": "ok",
+    "slices": 4,
+    "totalHeight": 3304,
+    "category": "pathlabs",
+    "url": "https://synlab.de"
+  },
+  {
+    "slug": "orthopedic-09-mediclinic",
+    "status": "ok",
+    "slices": 5,
+    "totalHeight": 4373,
+    "category": "orthopedic",
+    "url": "https://mediclinic.ae"
+  },
+  {
+    "slug": "pathlabs-03-laboklin",
+    "status": "ok",
+    "slices": 4,
+    "totalHeight": 3634,
+    "category": "pathlabs",
+    "url": "https://laboklin.de"
+  },
+  {
+    "slug": "pathlabs-05-biomnis",
+    "status": "ok",
+    "slices": 7,
+    "totalHeight": 5615,
+    "category": "pathlabs",
+    "url": "https://biomnis.fr"
+  },
+  {
+    "slug": "physician-08-clevelandclinicabudhabi",
+    "status": "ok",
+    "slices": 9,
+    "totalHeight": 7862,
+    "category": "physician",
+    "url": "https://clevelandclinicabudhabi.ae"
+  },
+  {
+    "slug": "physician-10-drsulaimanalhabib",
+    "status": "ok",
+    "slices": 6,
+    "totalHeight": 4996,
+    "category": "physician",
+    "url": "https://drsulaimanalhabib.ae"
+  },
+  {
+    "slug": "psychology-01-klinik-gut",
+    "status": "ok",
+    "slices": 8,
+    "totalHeight": 6462,
+    "category": "psychology",
+    "url": "https://klinik-gut.ch"
+  },
+  {
+    "slug": "psychology-03-my-international-therapy",
+    "status": "ok",
+    "slices": 5,
+    "totalHeight": 4332,
+    "category": "psychology",
+    "url": "https://my-international-therapy.com"
+  },
+  {
+    "slug": "psychology-05-parispsychologycentre",
+    "status": "ok",
+    "slices": 12,
+    "totalHeight": 11896,
+    "category": "psychology",
+    "url": "https://parispsychologycentre.com"
+  }
+]

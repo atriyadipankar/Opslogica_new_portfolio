@@ -5,6 +5,7 @@ import IndustriesSection from "@/components/sections/IndustriesSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
 import StatsSection from "@/components/sections/StatsSection";
 import CaseStudyPreview from "@/components/sections/CaseStudyPreview";
+import PortfolioSection from "@/components/sections/PortfolioSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
 import FAQSection from "@/components/sections/FAQSection";
@@ -57,6 +58,7 @@ export default function HomePage() {
       <IndustriesSection />
       <WhyUsSection />
       <StatsSection />
+      <PortfolioSection />
       <CaseStudyPreview />
       <TestimonialsSection />
       <CTASection />

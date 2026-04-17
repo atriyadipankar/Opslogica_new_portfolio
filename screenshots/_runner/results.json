@@ -1,0 +1,394 @@
+[
+  {
+    "slug": "03-zahnarzt-am-friedrichsbrunnen",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://zahnarzt-am-friedrichsbrunnen.de/\nCall log:\n\u001b[2m  - navigating to \"https://zahnarzt-am-friedrichsbrunnen.de/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dental",
+    "url": "https://zahnarzt-am-friedrichsbrunnen.de"
+  },
+  {
+    "slug": "05-clinique-dentaire-victor-hugo",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://clinique-dentaire-victor-hugo.fr/\nCall log:\n\u001b[2m  - navigating to \"https://clinique-dentaire-victor-hugo.fr/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dental",
+    "url": "https://clinique-dentaire-victor-hugo.fr"
+  },
+  {
+    "slug": "04-zahnklinik-ettlingen",
+    "status": "error",
+    "error": "page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://zahnklinik-ettlingen.de/\nCall log:\n\u001b[2m  - navigating to \"https://zahnklinik-ettlingen.de/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dental",
+    "url": "https://zahnklinik-ettlingen.de"
+  },
+  {
+    "slug": "07-dentalstudiomex",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://dentalstudiomex.com.mx/\nCall log:\n\u001b[2m  - navigating to \"https://dentalstudiomex.com.mx/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dental",
+    "url": "https://dentalstudiomex.com.mx"
+  },
+  {
+    "slug": "08-germandentaloasis",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://germandentaloasis.ae/\nCall log:\n\u001b[2m  - navigating to \"https://germandentaloasis.ae/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dental",
+    "url": "https://germandentaloasis.ae"
+  },
+  {
+    "slug": "01-swisssmile",
+    "status": "ok",
+    "category": "dental",
+    "url": "https://swisssmile.com"
+  },
+  {
+    "slug": "10-bahri-dental",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://bahri-dental.com.sa/\nCall log:\n\u001b[2m  - navigating to \"https://bahri-dental.com.sa/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dental",
+    "url": "https://bahri-dental.com.sa"
+  },
+  {
+    "slug": "02-smile-clinic-fr",
+    "status": "ok",
+    "category": "dental",
+    "url": "https://smile-clinic.fr"
+  },
+  {
+    "slug": "06-sonrisas-mx",
+    "status": "ok",
+    "category": "dental",
+    "url": "https://sonrisas.mx"
+  },
+  {
+    "slug": "09-novadent",
+    "status": "ok",
+    "category": "dental",
+    "url": "https://novadent.ae"
+  },
+  {
+    "slug": "01-joint-surgeon",
+    "status": "ok",
+    "category": "orthopedic",
+    "url": "https://joint-surgeon.com"
+  },
+  {
+    "slug": "04-clinique-du-parc",
+    "status": "ok",
+    "category": "orthopedic",
+    "url": "https://clinique-du-parc.fr"
+  },
+  {
+    "slug": "06-hospitalespanolmx",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://hospitalespanolmx.com/\nCall log:\n\u001b[2m  - navigating to \"https://hospitalespanolmx.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "orthopedic",
+    "url": "https://hospitalespanolmx.com"
+  },
+  {
+    "slug": "07-tocorona",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://tocorona.mx/\nCall log:\n\u001b[2m  - navigating to \"https://tocorona.mx/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "orthopedic",
+    "url": "https://tocorona.mx"
+  },
+  {
+    "slug": "02-schoen-klinik",
+    "status": "ok",
+    "category": "orthopedic",
+    "url": "https://schoen-klinik.de"
+  },
+  {
+    "slug": "03-waldkliniken-eisenberg",
+    "status": "ok",
+    "category": "orthopedic",
+    "url": "https://waldkliniken-eisenberg.de"
+  },
+  {
+    "slug": "05-iuot",
+    "status": "ok",
+    "category": "orthopedic",
+    "url": "https://iuot.com"
+  },
+  {
+    "slug": "09-mediclinic",
+    "status": "ok",
+    "category": "orthopedic",
+    "url": "https://mediclinic.ae"
+  },
+  {
+    "slug": "01-klinik-gut",
+    "status": "ok",
+    "category": "psychology",
+    "url": "https://klinik-gut.ch"
+  },
+  {
+    "slug": "08-ahdubai",
+    "status": "ok",
+    "category": "orthopedic",
+    "url": "https://ahdubai.com"
+  },
+  {
+    "slug": "04-santemental-paris",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://santemental-paris.fr/\nCall log:\n\u001b[2m  - navigating to \"https://santemental-paris.fr/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "psychology",
+    "url": "https://santemental-paris.fr"
+  },
+  {
+    "slug": "10-hmg-ar",
+    "status": "ok",
+    "category": "orthopedic",
+    "url": "https://hmg.com/ar"
+  },
+  {
+    "slug": "03-my-international-therapy",
+    "status": "ok",
+    "category": "psychology",
+    "url": "https://my-international-therapy.com"
+  },
+  {
+    "slug": "07-centrodepsicologia",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://centrodepsicologia.mx/\nCall log:\n\u001b[2m  - navigating to \"https://centrodepsicologia.mx/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "psychology",
+    "url": "https://centrodepsicologia.mx"
+  },
+  {
+    "slug": "06-ipsilon",
+    "status": "ok",
+    "category": "psychology",
+    "url": "https://ipsilon.com.mx"
+  },
+  {
+    "slug": "09-camali-clinic",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://camali-clinic.com/\nCall log:\n\u001b[2m  - navigating to \"https://camali-clinic.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "psychology",
+    "url": "https://camali-clinic.com"
+  },
+  {
+    "slug": "10-shifaak",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://shifaak.sa/\nCall log:\n\u001b[2m  - navigating to \"https://shifaak.sa/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "psychology",
+    "url": "https://shifaak.sa"
+  },
+  {
+    "slug": "01-medizinicum-hamburg",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://medizinicum-hamburg.de/\nCall log:\n\u001b[2m  - navigating to \"https://medizinicum-hamburg.de/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "physician",
+    "url": "https://medizinicum-hamburg.de"
+  },
+  {
+    "slug": "02-privatpraxis-reichenbach",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://privatpraxis-reichenbach.de/\nCall log:\n\u001b[2m  - navigating to \"https://privatpraxis-reichenbach.de/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "physician",
+    "url": "https://privatpraxis-reichenbach.de"
+  },
+  {
+    "slug": "02-priory-de",
+    "status": "ok",
+    "category": "psychology",
+    "url": "https://priory.de"
+  },
+  {
+    "slug": "04-cabinet-docteur-lacroix",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://cabinet-docteur-lacroix.fr/\nCall log:\n\u001b[2m  - navigating to \"https://cabinet-docteur-lacroix.fr/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "physician",
+    "url": "https://cabinet-docteur-lacroix.fr"
+  },
+  {
+    "slug": "05-centremed-paris",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://centremed-paris.fr/\nCall log:\n\u001b[2m  - navigating to \"https://centremed-paris.fr/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "physician",
+    "url": "https://centremed-paris.fr"
+  },
+  {
+    "slug": "06-hospitalsanangel",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://hospitalsanangel.com.mx/\nCall log:\n\u001b[2m  - navigating to \"https://hospitalsanangel.com.mx/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "physician",
+    "url": "https://hospitalsanangel.com.mx"
+  },
+  {
+    "slug": "07-medica-sur",
+    "status": "error",
+    "error": "page.goto: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://medica-sur.com.mx/\nCall log:\n\u001b[2m  - navigating to \"https://medica-sur.com.mx/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "physician",
+    "url": "https://medica-sur.com.mx"
+  },
+  {
+    "slug": "08-thelighthouse",
+    "status": "error",
+    "error": "page.evaluate: Execution context was destroyed, most likely because of a navigation",
+    "category": "psychology",
+    "url": "https://thelighthouse.ae"
+  },
+  {
+    "slug": "09-humansclinics",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://humansclinics.com/\nCall log:\n\u001b[2m  - navigating to \"https://humansclinics.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "physician",
+    "url": "https://humansclinics.com"
+  },
+  {
+    "slug": "05-parispsychologycentre",
+    "status": "ok",
+    "category": "psychology",
+    "url": "https://parispsychologycentre.com"
+  },
+  {
+    "slug": "08-clevelandclinicabudhabi",
+    "status": "ok",
+    "category": "physician",
+    "url": "https://clevelandclinicabudhabi.ae"
+  },
+  {
+    "slug": "01-synlab",
+    "status": "ok",
+    "category": "pathlabs",
+    "url": "https://synlab.de"
+  },
+  {
+    "slug": "03-doctolib",
+    "status": "ok",
+    "category": "physician",
+    "url": "https://doctolib.fr"
+  },
+  {
+    "slug": "10-drsulaimanalhabib",
+    "status": "ok",
+    "category": "physician",
+    "url": "https://drsulaimanalhabib.ae"
+  },
+  {
+    "slug": "04-cerba-healthcare",
+    "status": "error",
+    "error": "page.goto: net::ERR_CONNECTION_REFUSED at https://cerba-healthcare.com/\nCall log:\n\u001b[2m  - navigating to \"https://cerba-healthcare.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "pathlabs",
+    "url": "https://cerba-healthcare.com"
+  },
+  {
+    "slug": "05-biomnis",
+    "status": "ok",
+    "category": "pathlabs",
+    "url": "https://biomnis.fr"
+  },
+  {
+    "slug": "07-clinicalab",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://clinicalab.com.mx/\nCall log:\n\u001b[2m  - navigating to \"https://clinicalab.com.mx/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "pathlabs",
+    "url": "https://clinicalab.com.mx"
+  },
+  {
+    "slug": "08-referencelaboratory",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://referencelaboratory.ae/\nCall log:\n\u001b[2m  - navigating to \"https://referencelaboratory.ae/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "pathlabs",
+    "url": "https://referencelaboratory.ae"
+  },
+  {
+    "slug": "09-mediclinic-laboratory",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://mediclinic-laboratory.ae/\nCall log:\n\u001b[2m  - navigating to \"https://mediclinic-laboratory.ae/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "pathlabs",
+    "url": "https://mediclinic-laboratory.ae"
+  },
+  {
+    "slug": "10-alborg",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://alborg.com.sa/\nCall log:\n\u001b[2m  - navigating to \"https://alborg.com.sa/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "pathlabs",
+    "url": "https://alborg.com.sa"
+  },
+  {
+    "slug": "03-laboklin",
+    "status": "ok",
+    "category": "pathlabs",
+    "url": "https://laboklin.de"
+  },
+  {
+    "slug": "02-hautzentrum-am-englischen-garten",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://hautzentrum-am-englischen-garten.de/\nCall log:\n\u001b[2m  - navigating to \"https://hautzentrum-am-englischen-garten.de/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dermatology",
+    "url": "https://hautzentrum-am-englischen-garten.de"
+  },
+  {
+    "slug": "03-dermatologie-mitte-berlin",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://dermatologie-mitte-berlin.de/\nCall log:\n\u001b[2m  - navigating to \"https://dermatologie-mitte-berlin.de/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dermatology",
+    "url": "https://dermatologie-mitte-berlin.de"
+  },
+  {
+    "slug": "06-chopo",
+    "status": "ok",
+    "category": "pathlabs",
+    "url": "https://chopo.com.mx"
+  },
+  {
+    "slug": "05-cabinet-dermato-paris",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://cabinet-dermato-paris.fr/\nCall log:\n\u001b[2m  - navigating to \"https://cabinet-dermato-paris.fr/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dermatology",
+    "url": "https://cabinet-dermato-paris.fr"
+  },
+  {
+    "slug": "06-dermavidaskin",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://dermavidaskin.mx/\nCall log:\n\u001b[2m  - navigating to \"https://dermavidaskin.mx/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dermatology",
+    "url": "https://dermavidaskin.mx"
+  },
+  {
+    "slug": "07-drleila",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://drleila.com.mx/\nCall log:\n\u001b[2m  - navigating to \"https://drleila.com.mx/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dermatology",
+    "url": "https://drleila.com.mx"
+  },
+  {
+    "slug": "04-cliniquedeschampselysees",
+    "status": "ok",
+    "category": "dermatology",
+    "url": "https://cliniquedeschampselysees.com"
+  },
+  {
+    "slug": "09-theaestheticclinic",
+    "status": "error",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://theaestheticclinic.ae/\nCall log:\n\u001b[2m  - navigating to \"https://theaestheticclinic.ae/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "dermatology",
+    "url": "https://theaestheticclinic.ae"
+  },
+  {
+    "slug": "02-labor-schottdorf",
+    "status": "error",
+    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://labor-schottdorf.de/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "category": "pathlabs",
+    "url": "https://labor-schottdorf.de"
+  },
+  {
+    "slug": "08-dermaeliteclinic",
+    "status": "ok",
+    "category": "dermatology",
+    "url": "https://dermaeliteclinic.ae"
+  },
+  {
+    "slug": "01-drsturm",
+    "status": "ok",
+    "category": "dermatology",
+    "url": "https://drsturm.com"
+  },
+  {
+    "slug": "10-royalclinicsaudia",
+    "status": "ok",
+    "category": "dermatology",
+    "url": "https://royalclinicsaudia.com"
+  }
+]
