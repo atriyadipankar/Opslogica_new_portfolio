@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 interface LightboxProps {
   images: string[];
@@ -19,7 +18,6 @@ export default function Lightbox({
 }: LightboxProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
-  // Sync when parent changes the initial index
   useEffect(() => {
     setCurrentIndex(initialIndex);
   }, [initialIndex]);
@@ -32,7 +30,7 @@ export default function Lightbox({
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length]);
 
-  // Keyboard navigation
+  // Keyboard: Escape or any click closes, arrows navigate
   useEffect(() => {
     if (!isOpen) return;
 
@@ -49,17 +47,15 @@ export default function Lightbox({
   // Preload adjacent images
   useEffect(() => {
     if (!isOpen) return;
-
     const preload = (index: number) => {
       const img = new Image();
       img.src = images[index];
     };
-
     preload((currentIndex + 1) % images.length);
     preload((currentIndex - 1 + images.length) % images.length);
   }, [isOpen, currentIndex, images]);
 
-  // Prevent body scroll while open
+  // Prevent body scroll
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -79,31 +75,13 @@ export default function Lightbox({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+          className="fixed inset-0 z-50 flex cursor-pointer items-center justify-center bg-black/95"
           onClick={onClose}
         >
-          {/* Close button */}
-          <button
-            onClick={onClose}
-            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center text-white/70 transition-colors hover:text-white"
-            aria-label="Close lightbox"
-          >
-            <X className="h-6 w-6" />
-          </button>
-
-          {/* Previous arrow */}
-          {images.length > 1 && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                goPrev();
-              }}
-              className="absolute left-4 z-10 flex h-10 w-10 items-center justify-center text-white/70 transition-colors hover:text-white"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="h-8 w-8" />
-            </button>
-          )}
+          {/* Hint text */}
+          <div className="absolute top-6 left-1/2 -translate-x-1/2 font-mono text-xs uppercase tracking-wider text-white/40">
+            Click anywhere to close
+          </div>
 
           {/* Image */}
           <AnimatePresence mode="wait">
@@ -111,33 +89,18 @@ export default function Lightbox({
               key={currentIndex}
               src={images[currentIndex]}
               alt={`Screenshot ${currentIndex + 1} of ${images.length}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-              className="max-h-[90vh] max-w-[90vw] object-contain"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.2 }}
+              className="max-h-[92vh] max-w-[94vw] cursor-pointer object-contain"
               draggable={false}
             />
           </AnimatePresence>
 
-          {/* Next arrow */}
-          {images.length > 1 && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                goNext();
-              }}
-              className="absolute right-4 z-10 flex h-10 w-10 items-center justify-center text-white/70 transition-colors hover:text-white"
-              aria-label="Next image"
-            >
-              <ChevronRight className="h-8 w-8" />
-            </button>
-          )}
-
           {/* Counter */}
           {images.length > 1 && (
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-sm text-white/60">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-sm text-white/50">
               {currentIndex + 1} / {images.length}
             </div>
           )}
