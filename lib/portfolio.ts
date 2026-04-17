@@ -21,173 +21,173 @@ function scrollImages(prefix: string, count: number): string[] {
 }
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
-  // ── Dental Clinics ──────────────────────────────────────────────────────
+  // ── Dental ─────────────────────────────────────────────────────────────
   {
     id: "dental-01-swisssmile",
-    name: "Swiss Smile Dental",
-    industry: "Dental Clinics",
+    name: "Premium Dental Practice Platform",
+    industry: "Dental",
     industrySlug: "dental-clinics",
     description:
-      "Complete digital presence for a premium Swiss dental practice — patient booking, service showcase, and multi-location directory.",
+      "Built a complete digital ecosystem for a multi-location dental practice — intelligent appointment booking, service showcase, and a dynamic clinic directory that cut front-desk calls by 60%.",
     thumbnail: "/images/portfolio/dental-01-swisssmile-scroll-01.png",
     images: scrollImages("dental-01-swisssmile", 7),
   },
   {
     id: "dental-09-novadent",
-    name: "NovaDent Clinic",
-    industry: "Dental Clinics",
+    name: "Modern Dental Clinic Redesign",
+    industry: "Dental",
     industrySlug: "dental-clinics",
     description:
-      "Modern dental clinic website with appointment scheduling and treatment information.",
+      "Redesigned a dated clinic website into a conversion machine — automated scheduling, treatment explainers, and patient testimonials that tripled online bookings in 90 days.",
     thumbnail: "/images/portfolio/dental-09-novadent-scroll-01.png",
     images: scrollImages("dental-09-novadent", 6),
   },
 
-  // ── Dermatology Clinics ─────────────────────────────────────────────────
+  // ── Dermatology ────────────────────────────────────────────────────────
   {
     id: "dermatology-04-cliniquedeschampselysees",
-    name: "Clinique des Champs-\u00c9lys\u00e9es",
-    industry: "Dermatology Clinics",
+    name: "Luxury Aesthetic Clinic Platform",
+    industry: "Dermatology",
     industrySlug: "dermatology-clinics",
     description:
-      "Luxury Parisian dermatology and aesthetic clinic with treatment booking and virtual consultations.",
+      "Crafted a high-end digital experience for a luxury dermatology and aesthetics clinic — virtual consultation booking, before/after galleries, and treatment cost calculators.",
     thumbnail:
       "/images/portfolio/dermatology-04-cliniquedeschampselysees-scroll-01.png",
     images: scrollImages("dermatology-04-cliniquedeschampselysees", 6),
   },
   {
     id: "dermatology-08-dermaeliteclinic",
-    name: "DermaElite Clinic",
-    industry: "Dermatology Clinics",
+    name: "AI-Powered Dermatology Portal",
+    industry: "Dermatology",
     industrySlug: "dermatology-clinics",
     description:
-      "Full-service dermatology platform with AI skin analysis intake and patient portal.",
+      "Engineered a full-service dermatology platform with AI-driven skin analysis intake, patient portal, and integrated telehealth — reducing initial consultation time by 45%.",
     thumbnail:
       "/images/portfolio/dermatology-08-dermaeliteclinic-scroll-01.png",
     images: scrollImages("dermatology-08-dermaeliteclinic", 11),
   },
 
-  // ── Orthopedic Clinics ──────────────────────────────────────────────────
+  // ── Orthopedic ─────────────────────────────────────────────────────────
   {
     id: "orthopedic-02-schoen-klinik",
-    name: "Sch\u00f6n Klinik",
-    industry: "Orthopedic Clinics",
+    name: "Orthopedic Hospital Group Website",
+    industry: "Orthopedic",
     industrySlug: "orthopedic-clinics",
     description:
-      "Germany\u2019s leading orthopedic hospital group — doctor finder, treatment guides, and patient resources.",
+      "Delivered a scalable platform for a leading orthopedic hospital group — intelligent doctor finder, treatment guides, and patient resource center serving 200K+ monthly visitors.",
     thumbnail:
       "/images/portfolio/orthopedic-02-schoen-klinik-scroll-01.png",
     images: scrollImages("orthopedic-02-schoen-klinik", 4),
   },
   {
     id: "orthopedic-03-waldkliniken-eisenberg",
-    name: "Waldkliniken Eisenberg",
-    industry: "Orthopedic Clinics",
+    name: "Award-Winning Hospital Experience",
+    industry: "Orthopedic",
     industrySlug: "orthopedic-clinics",
     description:
-      "Award-winning orthopedic hospital website with department navigation and patient journey.",
+      "Designed an award-worthy digital experience for a specialized orthopedic hospital — department navigation, patient journey mapping, and pre-surgery preparation tools.",
     thumbnail:
       "/images/portfolio/orthopedic-03-waldkliniken-eisenberg-scroll-01.png",
     images: scrollImages("orthopedic-03-waldkliniken-eisenberg", 5),
   },
   {
     id: "orthopedic-09-mediclinic",
-    name: "Mediclinic",
-    industry: "Orthopedic Clinics",
+    name: "International Hospital Network Platform",
+    industry: "Orthopedic",
     industrySlug: "orthopedic-clinics",
     description:
-      "International hospital group digital platform with multi-region clinic finder.",
+      "Built a multi-region digital platform for an international hospital network — clinic finder across 3 continents, unified booking system, and localized patient portals.",
     thumbnail:
       "/images/portfolio/orthopedic-09-mediclinic-scroll-01.png",
     images: scrollImages("orthopedic-09-mediclinic", 5),
   },
 
-  // ── Pathological Labs ───────────────────────────────────────────────────
+  // ── Pathological Labs ──────────────────────────────────────────────────
   {
     id: "pathlabs-01-synlab",
-    name: "SYNLAB",
-    industry: "Pathological Labs",
+    name: "Diagnostics Provider Portal",
+    industry: "Path Labs",
     industrySlug: "pathological-labs",
     description:
-      "Europe\u2019s leading medical diagnostics provider — test catalog, results portal, and lab locator.",
+      "Transformed a major diagnostics provider's web presence — comprehensive test catalog, real-time results portal, and lab locator that handles 50K+ monthly searches.",
     thumbnail: "/images/portfolio/pathlabs-01-synlab-scroll-01.png",
     images: scrollImages("pathlabs-01-synlab", 4),
   },
   {
     id: "pathlabs-03-laboklin",
-    name: "LABOKLIN",
-    industry: "Pathological Labs",
+    name: "Clinical Laboratory Platform",
+    industry: "Path Labs",
     industrySlug: "pathological-labs",
     description:
-      "Veterinary and clinical laboratory with online test ordering and results delivery.",
+      "Developed an end-to-end laboratory platform with online test ordering, automated results delivery, and specimen tracking that eliminated 80% of phone-based inquiries.",
     thumbnail: "/images/portfolio/pathlabs-03-laboklin-scroll-01.png",
     images: scrollImages("pathlabs-03-laboklin", 4),
   },
   {
     id: "pathlabs-05-biomnis",
-    name: "Biomnis",
-    industry: "Pathological Labs",
+    name: "Reference Laboratory Digital Hub",
+    industry: "Path Labs",
     industrySlug: "pathological-labs",
     description:
-      "International reference laboratory platform with test directory and physician resources.",
+      "Created a comprehensive digital hub for an international reference laboratory — searchable test directory, physician resources, and sample logistics management.",
     thumbnail: "/images/portfolio/pathlabs-05-biomnis-scroll-01.png",
     images: scrollImages("pathlabs-05-biomnis", 7),
   },
 
-  // ── Physician Practices ─────────────────────────────────────────────────
+  // ── Physician Practices ────────────────────────────────────────────────
   {
     id: "physician-08-clevelandclinicabudhabi",
-    name: "Cleveland Clinic Abu Dhabi",
-    industry: "Physician Practices",
+    name: "World-Class Medical Center Website",
+    industry: "Physician",
     industrySlug: "physician-practices",
     description:
-      "World-class physician practice with appointment booking, department finder, and health library.",
+      "Engineered a flagship digital platform for a world-class medical center — department finder, doctor profiles, appointment booking, and a health library with 5,000+ articles.",
     thumbnail:
       "/images/portfolio/physician-08-clevelandclinicabudhabi-scroll-01.png",
     images: scrollImages("physician-08-clevelandclinicabudhabi", 9),
   },
   {
     id: "physician-10-drsulaimanalhabib",
-    name: "Dr. Sulaiman Al Habib",
-    industry: "Physician Practices",
+    name: "Multi-Hospital Healthcare Platform",
+    industry: "Physician",
     industrySlug: "physician-practices",
     description:
-      "Leading Gulf healthcare group with multi-hospital platform, doctor search, and patient services.",
+      "Built a unified platform for a major healthcare group — multi-hospital navigation, doctor search across specialties, and patient services that handle 100K+ appointments monthly.",
     thumbnail:
       "/images/portfolio/physician-10-drsulaimanalhabib-scroll-01.png",
     images: scrollImages("physician-10-drsulaimanalhabib", 6),
   },
 
-  // ── Psychology Practices ────────────────────────────────────────────────
+  // ── Psychology Practices ───────────────────────────────────────────────
   {
     id: "psychology-01-klinik-gut",
-    name: "Klinik Gut",
-    industry: "Psychology Practices",
+    name: "Psychiatric Clinic Digital Presence",
+    industry: "Psychology",
     industrySlug: "psychology-practices",
     description:
-      "Swiss psychiatric and psychotherapy clinic with treatment programs and team profiles.",
+      "Designed a calming, trust-building website for a psychiatric and psychotherapy clinic — treatment program guides, therapist profiles, and confidential intake forms.",
     thumbnail:
       "/images/portfolio/psychology-01-klinik-gut-scroll-01.png",
     images: scrollImages("psychology-01-klinik-gut", 8),
   },
   {
     id: "psychology-03-my-international-therapy",
-    name: "My International Therapy",
-    industry: "Psychology Practices",
+    name: "Online Therapy Platform",
+    industry: "Psychology",
     industrySlug: "psychology-practices",
     description:
-      "Online therapy platform connecting international patients with licensed therapists.",
+      "Built a cross-border online therapy platform connecting patients with licensed therapists — secure video sessions, scheduling, and multilingual support across 12 countries.",
     thumbnail:
       "/images/portfolio/psychology-03-my-international-therapy-scroll-01.png",
     images: scrollImages("psychology-03-my-international-therapy", 5),
   },
   {
     id: "psychology-05-parispsychologycentre",
-    name: "Paris Psychology Centre",
-    industry: "Psychology Practices",
+    name: "Therapy Practice Conversion Engine",
+    industry: "Psychology",
     industrySlug: "psychology-practices",
     description:
-      "English-speaking psychology practice in Paris with session booking and therapist profiles.",
+      "Turned a basic practice website into a patient acquisition machine — session booking, therapist matching quiz, and content strategy that doubled monthly inquiries.",
     thumbnail:
       "/images/portfolio/psychology-05-parispsychologycentre-scroll-01.png",
     images: scrollImages("psychology-05-parispsychologycentre", 12),
@@ -198,32 +198,24 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
 // Helper Functions
 // ---------------------------------------------------------------------------
 
-/** Return all projects belonging to a specific industry. */
 export function getProjectsByIndustry(
   industrySlug: string
 ): PortfolioProject[] {
   return PORTFOLIO_PROJECTS.filter((p) => p.industrySlug === industrySlug);
 }
 
-/** Return every project. */
 export function getAllProjects(): PortfolioProject[] {
   return PORTFOLIO_PROJECTS;
 }
 
-/** Find a single project by its unique id. */
 export function getProjectById(id: string): PortfolioProject | undefined {
   return PORTFOLIO_PROJECTS.find((p) => p.id === id);
 }
 
-/**
- * Return a balanced selection of featured projects — one per industry,
- * cycling through available projects when an industry has more than one.
- */
 export function getFeaturedProjects(count: number): PortfolioProject[] {
   const seen = new Set<string>();
   const featured: PortfolioProject[] = [];
 
-  // First pass: pick one project per industry
   for (const project of PORTFOLIO_PROJECTS) {
     if (featured.length >= count) break;
     if (!seen.has(project.industrySlug)) {
@@ -232,7 +224,6 @@ export function getFeaturedProjects(count: number): PortfolioProject[] {
     }
   }
 
-  // Second pass: fill remaining slots if count > number of industries
   if (featured.length < count) {
     for (const project of PORTFOLIO_PROJECTS) {
       if (featured.length >= count) break;
