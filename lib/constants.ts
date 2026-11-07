@@ -38,18 +38,6 @@ export const NAV_LINKS: NavLink[] = [
       { label: "Business Automation", href: "/services/business-automation" },
     ],
   },
-  {
-    label: "Industries",
-    href: "/industries",
-    children: [
-      { label: "Dental Clinics", href: "/industries/dental-clinics" },
-      { label: "Orthopedic Clinics", href: "/industries/orthopedic-clinics" },
-      { label: "Psychology Practices", href: "/industries/psychology-practices" },
-      { label: "Physician Practices", href: "/industries/physician-practices" },
-      { label: "Pathological Labs", href: "/industries/pathological-labs" },
-      { label: "Dermatology Clinics", href: "/industries/dermatology-clinics" },
-    ],
-  },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
@@ -272,9 +260,9 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     id: "faq-3",
-    question: "Do you work with healthcare organizations that require HIPAA compliance?",
+    question: "Can you work with sensitive or regulated data?",
     answer:
-      "Absolutely. Healthcare is one of our core verticals. All our solutions are built with HIPAA compliance in mind, including encrypted data storage, role-based access controls, audit logging, and signed Business Associate Agreements (BAAs).",
+      "Yes. We build with security in mind from day one: encrypted data storage, role-based access controls and audit logging, and we can work within your compliance requirements and sign the agreements your industry needs.",
   },
   {
     id: "faq-4",

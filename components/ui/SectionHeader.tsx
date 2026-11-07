@@ -20,23 +20,23 @@ export default function SectionHeader({
   return (
     <div className={cn(centered && "text-center", className)}>
       {badge && (
-        <div className="mb-4">
+        <div className="mb-5">
           <span className="badge-label">{badge}</span>
         </div>
       )}
 
-      <h2 className="text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
-        {title}
-      </h2>
+      <h2 className="text-[2.1rem] leading-[1.1] text-text-primary md:text-5xl">{title}</h2>
 
-      <p
-        className={cn(
-          "mt-4 text-base text-text-secondary",
-          centered && "mx-auto max-w-2xl"
-        )}
-      >
-        {subtitle}
-      </p>
+      {subtitle && (
+        <p
+          className={cn(
+            "mt-5 text-lg leading-relaxed text-text-secondary",
+            centered && "mx-auto max-w-2xl"
+          )}
+        >
+          {subtitle}
+        </p>
+      )}
     </div>
   );
 }

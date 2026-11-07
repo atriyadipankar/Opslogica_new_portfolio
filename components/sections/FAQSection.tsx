@@ -19,7 +19,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="section-padding section-border">
+    <section className="section-padding">
       <div className="mx-auto max-w-[800px] px-6">
         <SectionHeader
           badge="FAQ"

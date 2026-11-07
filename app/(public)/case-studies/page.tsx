@@ -6,7 +6,7 @@ import PortfolioGrid from "@/components/sections/PortfolioGrid";
 export const metadata: Metadata = {
   title: "Case Studies | Opslogica",
   description:
-    "Real results from real projects across healthcare and enterprise. Explore how Opslogica delivers measurable outcomes through custom software and AI automation.",
+    "Real projects across industries. Explore how Opslogica delivers measurable outcomes through custom software and AI automation.",
   alternates: {
     canonical: "https://opslogica.com/case-studies",
   },
@@ -27,7 +27,7 @@ export default function CaseStudiesPage() {
         <div className="mx-auto max-w-[1280px] px-6">
           <SectionHeader
             title="Our Work Speaks for Itself"
-            subtitle="Real websites built for real healthcare businesses across the globe. Click any project to explore."
+            subtitle="Websites and platforms we have built for businesses around the world. Click any project to explore."
             badge="Case Studies"
           />
         </div>

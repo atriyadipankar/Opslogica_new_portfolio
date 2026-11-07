@@ -1,18 +1,24 @@
-import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Fraunces, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-ibm-plex",
+// Soft, friendly serif for headlines; clean humanist sans for everything else.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  axes: ["SOFT", "opsz"],
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  axes: ["opsz"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#f6f1e7",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://opslogica.com"),
@@ -31,13 +37,13 @@ export const metadata: Metadata = {
     default: "Opslogica | Software Development, AI & Business Automation",
   },
   description:
-    "Opslogica builds custom software, websites, and AI automation systems for healthcare businesses and local enterprises across the US, Canada, Europe, Australia, and Gulf.",
+    "Opslogica builds custom software, websites, and AI automation systems for growing businesses across the US, Canada, Europe, Australia, and Gulf.",
   keywords: [
     "software development company",
     "AI automation for small business",
     "business automation services",
-    "website development for dental clinics",
-    "healthcare software solutions",
+    "AI workflow automation",
+    "custom automation agency",
     "custom software USA Canada",
   ],
   openGraph: {
@@ -69,7 +75,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

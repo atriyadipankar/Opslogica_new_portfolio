@@ -11,6 +11,12 @@ export interface PortfolioProject {
   thumbnail: string;
   fullImage: string;
   images: string[];
+  /** Public URL of the live site, when the project has one. */
+  liveUrl?: string;
+  /** Short list of technologies shown on the project card and modal. */
+  tags?: string[];
+  /** Featured projects are shown first on the home page. */
+  featured?: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -32,7 +38,29 @@ function scrollImages(prefix: string, count: number): string[] {
   });
 }
 
-export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
+// Risin Exim screenshots are bundled with the site (public/images/projects/risin-exim)
+// rather than the Supabase bucket, so the project works without an upload step.
+function local(project: string, file: string): string {
+  return `/images/projects/${project}/${file}.jpg`;
+}
+
+const ALL_PROJECTS: PortfolioProject[] = [
+  // ── Manufacturing & Export ─────────────────────────────────────────────
+  {
+    id: "manufacturing-export-01-risinexim",
+    name: "Risin Exim — Garment Exporter Website",
+    industry: "Manufacturing & Export",
+    industrySlug: "manufacturing-export",
+    description:
+      "A premium corporate website for a New Delhi garment manufacturer and exporter. It brings a six-category product catalogue, manufacturing, quality and sustainability stories, an export-markets showcase and a newsroom together in one polished site, with a sample-request flow that validates every inquiry, stores it in a database and sends email notifications.",
+    fullImage: local("risin-exim", "full"),
+    thumbnail: local("risin-exim", "scroll-01"),
+    images: [1, 2, 3, 4, 5, 6].map((n) => local("risin-exim", `scroll-0${n}`)),
+    liveUrl: "https://risin-axim.vercel.app",
+    tags: ["Next.js", "Tailwind CSS", "GSAP", "Prisma", "PostgreSQL", "Resend"],
+    featured: true,
+  },
+
   // ── Dental ─────────────────────────────────────────────────────────────
   {
     id: "dental-01-swisssmile",
@@ -211,6 +239,22 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   },
 ];
 
+// The site now positions Opslogica as a general AI-automation studio, so the
+// healthcare client sites are kept in the data but hidden from the public listing.
+// Remove an entry from this set to show that industry again.
+const HIDDEN_INDUSTRIES = new Set([
+  "dental-clinics",
+  "orthopedic-clinics",
+  "psychology-practices",
+  "physician-practices",
+  "pathological-labs",
+  "dermatology-clinics",
+]);
+
+export const PORTFOLIO_PROJECTS: PortfolioProject[] = ALL_PROJECTS.filter(
+  (p) => !HIDDEN_INDUSTRIES.has(p.industrySlug)
+);
+
 // ---------------------------------------------------------------------------
 // Helper Functions
 // ---------------------------------------------------------------------------
@@ -218,11 +262,34 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
 export function getProjectsByIndustry(
   industrySlug: string
 ): PortfolioProject[] {
-  return PORTFOLIO_PROJECTS.filter((p) => p.industrySlug === industrySlug);
+  return ALL_PROJECTS.filter((p) => p.industrySlug === industrySlug);
 }
 
 export function getAllProjects(): PortfolioProject[] {
   return PORTFOLIO_PROJECTS;
+}
+
+// Filter pills are built from the data, so adding a project in a new industry
+// adds its filter automatically. The order below is the display order.
+const FILTER_LABELS: Record<string, string> = {
+  "dental-clinics": "Dental",
+  "orthopedic-clinics": "Orthopedic",
+  "psychology-practices": "Psychology",
+  "physician-practices": "Physician",
+  "pathological-labs": "Path Labs",
+  "dermatology-clinics": "Dermatology",
+  "manufacturing-export": "Manufacturing & Export",
+};
+
+export function getIndustryFilters(): { label: string; slug: string }[] {
+  const present = new Set(PORTFOLIO_PROJECTS.map((p) => p.industrySlug));
+  const known = Object.keys(FILTER_LABELS).filter((slug) => present.has(slug));
+  const extra = [...present].filter((slug) => !(slug in FILTER_LABELS));
+  return [
+    { label: "All", slug: "all" },
+    ...known.map((slug) => ({ label: FILTER_LABELS[slug], slug })),
+    ...extra.map((slug) => ({ label: slug, slug })),
+  ];
 }
 
 export function getProjectById(id: string): PortfolioProject | undefined {
@@ -230,8 +297,10 @@ export function getProjectById(id: string): PortfolioProject | undefined {
 }
 
 export function getFeaturedProjects(count: number): PortfolioProject[] {
+  // Projects flagged `featured` always lead; then one project per industry.
   const seen = new Set<string>();
-  const featured: PortfolioProject[] = [];
+  const featured: PortfolioProject[] = PORTFOLIO_PROJECTS.filter((p) => p.featured).slice(0, count);
+  featured.forEach((p) => seen.add(p.industrySlug));
 
   for (const project of PORTFOLIO_PROJECTS) {
     if (featured.length >= count) break;

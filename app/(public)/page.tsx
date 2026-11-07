@@ -4,9 +4,10 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import IndustriesSection from "@/components/sections/IndustriesSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
 import StatsSection from "@/components/sections/StatsSection";
-import CaseStudyPreview from "@/components/sections/CaseStudyPreview";
+import IntegrationSection from "@/components/sections/IntegrationSection";
+import ProcessSection from "@/components/sections/ProcessSection";
+import Marquee from "@/components/ui/Marquee";
 import PortfolioSection from "@/components/sections/PortfolioSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
 import FAQSection from "@/components/sections/FAQSection";
 import JsonLd from "@/components/seo/JsonLd";
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
     absolute: "Opslogica | Software Development, AI Automation & Business Solutions",
   },
   description:
-    "Opslogica delivers custom software development, AI automation, and business automation to healthcare clinics and local enterprises across USA, Canada, Europe, Australia, and Gulf.",
+    "Opslogica builds custom software and AI automation for any team: leads, support, invoices, scheduling, reporting and more. Serving businesses across the USA, Canada, Europe, Australia, India and the Gulf.",
   keywords: [
     "software development company",
     "AI automation for small business",
     "business automation services",
-    "website development for dental clinics",
-    "healthcare software solutions",
+    "AI workflow automation",
+    "custom automation agency",
     "custom software USA Canada",
   ],
   alternates: {
@@ -54,13 +55,14 @@ export default function HomePage() {
     <>
       <JsonLd data={organizationSchema} />
       <HeroSection />
+      <Marquee />
       <ServicesSection />
+      <IntegrationSection />
       <IndustriesSection />
+      <ProcessSection />
       <WhyUsSection />
       <StatsSection />
       <PortfolioSection />
-      <CaseStudyPreview />
-      <TestimonialsSection />
       <CTASection />
       <FAQSection />
     </>

@@ -6,11 +6,12 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { NAV_LINKS, type NavLink } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 import MobileMenu from "./MobileMenu";
 
 // ---------------------------------------------------------------------------
-// Header — Clean editorial style (anyasegen.com inspired)
-// Fixed, white bg 95% opacity, backdrop-blur, border-bottom
+// Header — a floating pill that sits above the page. It gains a soft shadow
+// and a more opaque paper background once you scroll.
 // ---------------------------------------------------------------------------
 
 export default function Header() {
@@ -20,15 +21,13 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Track scroll position
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
@@ -36,7 +35,6 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
-  // Helpers for dropdown hover with delay so cursor can travel to submenu
   const handleDropdownEnter = (label: string) => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
@@ -46,9 +44,7 @@ export default function Header() {
   };
 
   const handleDropdownLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setOpenDropdown(null);
-    }, 150);
+    dropdownTimeoutRef.current = setTimeout(() => setOpenDropdown(null), 150);
   };
 
   const isActive = (link: NavLink): boolean => {
@@ -58,29 +54,35 @@ export default function Header() {
     return false;
   };
 
+  const pill = (active: boolean) =>
+    cn(
+      "inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.9375rem] transition-colors duration-200",
+      active
+        ? "bg-sage/70 font-semibold text-ink"
+        : "text-text-secondary hover:bg-sage/45 hover:text-ink"
+    );
+
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm border-b border-border-subtle ${
-          scrolled ? "shadow-[0_1px_3px_rgba(0,0,0,0.04)]" : ""
-        }`}
-      >
-        <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6">
+      <header className="fixed inset-x-0 top-3 z-50 px-3">
+        <div
+          className={cn(
+            "mx-auto flex h-[60px] max-w-[1180px] items-center justify-between rounded-full border pl-6 pr-2.5 transition-all duration-300",
+            scrolled
+              ? "border-border-subtle bg-paper/90 shadow-[0_18px_44px_-18px_rgba(20,38,31,0.35)] backdrop-blur-md"
+              : "border-transparent bg-paper/55 backdrop-blur-sm"
+          )}
+        >
           {/* ---- Logo ---- */}
-          <Link href="/" className="select-none">
-            <img
-              src="/images/logo.png"
-              alt="Opslogica"
-              className="h-5 w-auto"
-            />
+          <Link href="/" className="select-none" aria-label="Opslogica home">
+            <img src="/images/logo.png" alt="Opslogica" className="h-5 w-auto" />
           </Link>
 
-          {/* ---- Desktop Nav ---- */}
-          <nav className="hidden items-center gap-0.5 lg:flex">
+          {/* ---- Desktop nav ---- */}
+          <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
             {NAV_LINKS.map((link) => {
               const active = isActive(link);
 
-              // Links with dropdown children
               if (link.children) {
                 return (
                   <div
@@ -89,46 +91,40 @@ export default function Header() {
                     onMouseEnter={() => handleDropdownEnter(link.label)}
                     onMouseLeave={handleDropdownLeave}
                   >
-                    <Link
-                      href={link.href}
-                      className={`group inline-flex items-center gap-1 px-3.5 py-2 text-sm transition-colors duration-200 ${
-                        active
-                          ? "text-text-primary font-medium"
-                          : "text-text-secondary hover:text-text-primary"
-                      }`}
-                    >
+                    <Link href={link.href} className={pill(active)}>
                       {link.label}
                       <ChevronDown
-                        size={13}
-                        strokeWidth={1.5}
-                        className={`transition-transform duration-200 ${
-                          openDropdown === link.label ? "rotate-180" : ""
-                        }`}
+                        size={14}
+                        strokeWidth={2}
+                        className={cn(
+                          "transition-transform duration-200",
+                          openDropdown === link.label && "rotate-180"
+                        )}
                       />
                     </Link>
 
-                    {/* Dropdown */}
                     <AnimatePresence>
                       {openDropdown === link.label && (
                         <motion.div
-                          initial={{ opacity: 0, y: 6 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 6 }}
-                          transition={{ duration: 0.15, ease: "easeOut" }}
-                          className="absolute left-0 top-full pt-1.5"
+                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                          transition={{ duration: 0.16, ease: "easeOut" }}
+                          className="absolute left-0 top-full pt-3"
                         >
-                          <div className="min-w-[220px] border border-border-subtle bg-white p-1.5 shadow-sm">
+                          <div className="min-w-[240px] rounded-3xl border border-border-subtle bg-paper p-2 shadow-[0_24px_50px_-20px_rgba(20,38,31,0.4)]">
                             {link.children.map((child) => {
                               const childActive = pathname.startsWith(child.href);
                               return (
                                 <Link
                                   key={child.href}
                                   href={child.href}
-                                  className={`block px-3.5 py-2 text-sm transition-colors duration-150 ${
+                                  className={cn(
+                                    "block rounded-2xl px-4 py-2.5 text-[0.9375rem] transition-colors duration-150",
                                     childActive
-                                      ? "text-text-primary bg-bg-glass"
-                                      : "text-text-secondary hover:text-text-primary hover:bg-bg-glass"
-                                  }`}
+                                      ? "bg-sage/60 font-semibold text-ink"
+                                      : "text-text-secondary hover:bg-sage/40 hover:text-ink"
+                                  )}
                                 >
                                   {child.label}
                                 </Link>
@@ -142,62 +138,48 @@ export default function Header() {
                 );
               }
 
-              // Simple links (no children)
               return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className={`relative px-3.5 py-2 text-sm transition-colors duration-200 ${
-                    active
-                      ? "text-text-primary font-medium"
-                      : "text-text-secondary hover:text-text-primary"
-                  }`}
-                >
+                <Link key={link.label} href={link.href} className={pill(active)}>
                   {link.label}
                 </Link>
               );
             })}
           </nav>
 
-          {/* ---- Right Section ---- */}
-          <div className="flex items-center gap-4">
+          {/* ---- Right ---- */}
+          <div className="flex items-center gap-2">
             <Link
               href="/contact"
-              className="btn-primary hidden !px-5 !py-2 !text-[0.6875rem] lg:inline-flex"
+              className="btn-primary max-lg:!hidden !px-5 !py-3 !text-sm"
             >
-              Book Demo
+              Book a demo
             </Link>
 
-            {/* Mobile hamburger — clean thin lines */}
             <button
               type="button"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              className="relative z-50 flex h-10 w-10 items-center justify-center text-text-primary lg:hidden"
+              aria-expanded={mobileOpen}
+              className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full bg-forest text-cream lg:hidden"
               onClick={() => setMobileOpen((prev) => !prev)}
             >
-              <span className="sr-only">Toggle menu</span>
-              <div className="relative h-4 w-5">
-                {/* Top bar */}
+              <div className="relative h-3.5 w-5">
                 <span
-                  className={`absolute left-0 h-px w-5 bg-current transition-all duration-300 ${
-                    mobileOpen
-                      ? "top-[7px] rotate-45"
-                      : "top-0 rotate-0"
-                  }`}
+                  className={cn(
+                    "absolute left-0 h-0.5 w-5 rounded bg-current transition-all duration-300",
+                    mobileOpen ? "top-[6px] rotate-45" : "top-0 rotate-0"
+                  )}
                 />
-                {/* Middle bar */}
                 <span
-                  className={`absolute left-0 top-[7px] h-px w-5 bg-current transition-all duration-300 ${
-                    mobileOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"
-                  }`}
+                  className={cn(
+                    "absolute left-0 top-[6px] h-0.5 w-5 rounded bg-current transition-all duration-300",
+                    mobileOpen ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
+                  )}
                 />
-                {/* Bottom bar */}
                 <span
-                  className={`absolute left-0 h-px w-5 bg-current transition-all duration-300 ${
-                    mobileOpen
-                      ? "top-[7px] -rotate-45"
-                      : "top-[14px] rotate-0"
-                  }`}
+                  className={cn(
+                    "absolute left-0 h-0.5 w-5 rounded bg-current transition-all duration-300",
+                    mobileOpen ? "top-[6px] -rotate-45" : "top-[12px] rotate-0"
+                  )}
                 />
               </div>
             </button>
@@ -205,11 +187,10 @@ export default function Header() {
         </div>
       </header>
 
-      {/* ---- Mobile Menu ---- */}
       <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
 
-      {/* ---- Spacer so content is not hidden behind fixed header ---- */}
-      <div className="h-16" />
+      {/* Spacer so content is not hidden behind the floating header */}
+      <div className="h-[84px]" />
     </>
   );
 }

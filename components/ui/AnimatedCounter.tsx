@@ -10,6 +10,10 @@ interface AnimatedCounterProps {
   label: string;
   duration?: number;
   className?: string;
+  /** Extra classes for the big number (colour, size). */
+  valueClassName?: string;
+  /** Extra classes for the caption under the number. */
+  labelClassName?: string;
 }
 
 export default function AnimatedCounter({
@@ -18,6 +22,8 @@ export default function AnimatedCounter({
   label,
   duration = 2,
   className,
+  valueClassName,
+  labelClassName,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
@@ -44,16 +50,26 @@ export default function AnimatedCounter({
   return (
     <div ref={ref} className={cn("text-center", className)}>
       <div className="flex items-baseline justify-center">
-        <span className="text-5xl font-semibold text-text-primary md:text-6xl">
+        <span
+          className={cn(
+            "font-display text-5xl font-medium text-text-primary md:text-6xl",
+            valueClassName
+          )}
+        >
           {displayValue}
         </span>
         {suffix && (
-          <span className="text-4xl font-semibold text-text-primary md:text-5xl">
+          <span
+            className={cn(
+              "font-display text-4xl font-medium text-text-primary md:text-5xl",
+              valueClassName
+            )}
+          >
             {suffix}
           </span>
         )}
       </div>
-      <p className="mt-2 text-sm text-text-secondary">{label}</p>
+      <p className={cn("mt-2 text-sm text-text-secondary", labelClassName)}>{label}</p>
     </div>
   );
 }
