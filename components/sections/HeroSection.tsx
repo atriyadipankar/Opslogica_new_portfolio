@@ -210,8 +210,8 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Opslogica designs custom software and AI automation for any team in any industry:
-            leads, support, invoices, scheduling, reporting and everything in between. Pick a
-            process and see how we would do it.
+            leads, support, invoices, scheduling, reporting and everything in between. We also
+            build AI-powered websites and web apps. Watch a workflow run on the right.
           </motion.p>
 
           <motion.div

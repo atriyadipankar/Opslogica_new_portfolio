@@ -62,7 +62,7 @@ export const SERVICES: Service[] = [
     title: "Software Development",
     slug: "software-development",
     description:
-      "Custom web and mobile applications engineered with modern frameworks, designed to scale with your business and deliver exceptional user experiences across every device.",
+      "Custom web apps and mobile applications with AI built in, engineered on modern frameworks and designed to scale with your business across every device.",
     icon: "Code",
   },
   {
@@ -70,7 +70,7 @@ export const SERVICES: Service[] = [
     title: "Website Development",
     slug: "website-development",
     description:
-      "High-performance websites built with Next.js, WordPress, and Shopify that convert visitors into customers with stunning design and blazing-fast load times.",
+      "AI-powered websites built with Next.js, WordPress, and Shopify, with smart chat, lead capture and personalisation that convert visitors into customers, in a fast, beautiful design.",
     icon: "Globe",
   },
   {

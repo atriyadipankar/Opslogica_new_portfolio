@@ -12,7 +12,7 @@ const EMAIL = "hello@opslogica.com";
 const MAX_REPLY = 1100;
 
 const DEFAULT_SUGGESTIONS = ["What do you automate?", "How does a project work?", "How do I get a quote?"];
-const OFF_TOPIC = `I can only help with Opslogica: what we automate, our services, how projects work, timelines, and how to get started. For anything else, email [${EMAIL}](mailto:${EMAIL}) or use the [contact page](/contact).`;
+const OFF_TOPIC = `I can only help with Opslogica: what we automate, the websites and web apps we build with AI, our services, how projects work, timelines, and how to get started. For anything else, email [${EMAIL}](mailto:${EMAIL}) or use the [contact page](/contact).`;
 const BLOCKED = "I can't help with that one. I'm here to answer questions about Opslogica and what we can automate for you.";
 const GREETING = "Hi! I'm the Opslogica assistant. I can explain what we automate, how a project works, timelines, and help you get started. What are you trying to automate?";
 

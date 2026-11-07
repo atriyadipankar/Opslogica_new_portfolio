@@ -18,6 +18,8 @@ const WORDS = [
   "approvals",
   "data entry",
   "custom AI agents",
+  "AI-powered websites",
+  "web apps with AI built in",
 ];
 
 // A single rolling line: "We automate ___", the word flips like a departures board.
@@ -36,7 +38,7 @@ export default function Marquee() {
       <div className="blob -left-20 top-0 h-64 w-64 animate-[drift_14s_ease-in-out_infinite] bg-[#2e6b52]" />
       <div className="blob -right-16 bottom-0 h-64 w-64 animate-[drift_18s_ease-in-out_infinite] bg-coral/30" />
       <div className="relative mx-auto max-w-[1100px] px-6 text-center">
-        <p className="font-display text-3xl text-cream/80 sm:text-5xl">We automate</p>
+        <p className="font-display text-3xl text-cream/80 sm:text-5xl">We automate &amp; build</p>
         <div className="mx-auto mt-3 flex h-[4.2rem] items-center justify-center overflow-hidden sm:h-28" aria-live="off">
           <AnimatePresence mode="wait">
             <motion.span
@@ -60,7 +62,7 @@ export default function Marquee() {
             transition={{ duration: 1.9, ease: "linear" }}
           />
         </div>
-        <p className="mt-6 text-sm text-cream/60">…and anything else that repeats.</p>
+        <p className="mt-6 text-sm text-cream/60">…from a single workflow to your whole website or web app.</p>
       </div>
     </section>
   );

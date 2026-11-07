@@ -12,7 +12,7 @@ const WELCOME: Msg = {
   role: "assistant",
   content: "Hi! I'm the Opslogica assistant. Ask me what we can automate, how a project works, or how to get started.",
 };
-const START = ["What do you automate?", "How does a project work?", "How long does it take?", "I need a quote"];
+const START = ["What do you automate?", "Can you build my website?", "How does a project work?", "How long does it take?", "I need a quote"];
 
 // Tiny markdown: **bold**, [label](url), "- " bullets.
 function inline(text: string) {

@@ -16,7 +16,7 @@ const base: Chunk[] = [
     id: "about",
     title: "What Opslogica is",
     keywords: "who what company about opslogica do you offer help business studio agency",
-    text: "Opslogica is an AI automation and software studio. We design custom software and AI automation for any team in any industry: leads, customer support, invoices and payments, scheduling, reporting, onboarding, orders and stock, documents and more. If a process repeats, we can automate it. We serve businesses across the United States, Canada, Europe, Australia, India and the Gulf region.",
+    text: "Opslogica is an AI automation and software studio. We design custom software and AI automation for any team in any industry: leads, customer support, invoices and payments, scheduling, reporting, onboarding, orders and stock, documents and more. We also design and build websites and web applications, with AI built in (for example smart chat assistants, lead capture, personalisation and search). If a process repeats, we can automate it, and if you need a site or app, we can build that too. We serve businesses across the United States, Canada, Europe, Australia, India and the Gulf region.",
   },
   {
     id: "automate-examples",
@@ -65,6 +65,12 @@ const base: Chunk[] = [
     title: "Security and sensitive data",
     keywords: "security secure data privacy compliance regulated encryption owasp gdpr hipaa",
     text: "We build with security in mind from day one: encrypted data storage, role-based access controls and audit logging, and we can work within your compliance requirements and sign the agreements your industry needs. We follow OWASP best practices, run regular penetration testing, use least-privilege access and arrange third-party security audits before launch.",
+  },
+  {
+    id: "web-ai",
+    title: "Websites and web apps with AI",
+    keywords: "website web app application build develop design ecommerce shop nextjs wordpress shopify ai powered chatbot",
+    text: "We build websites and web applications from scratch and power them with AI: assistants that answer visitors, smart lead capture and routing, personalised content, search over your own documents, and dashboards, all connected to your existing tools. We use Next.js, React, WordPress and Shopify depending on the need. A recent example is the Risin Exim export website.",
   },
   {
     id: "tech",
